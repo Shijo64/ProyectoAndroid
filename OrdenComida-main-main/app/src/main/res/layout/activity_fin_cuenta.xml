@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/amarillento"
+    android:orientation="vertical"
+    tools:context=".FinCuenta">
+
+    <LinearLayout
+        android:layout_width="310dp"
+        android:layout_height="150dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="240dp"
+        android:background="@drawable/round_view"
+        android:backgroundTint="@color/naranjaClaro"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/btn_agregar_cuenta"
+            android:layout_width="219dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:background="@drawable/round_button"
+            android:fontFamily="@font/inter_semibold"
+            android:text="@string/agregaCuenta"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:layout_marginTop="20dp"/>
+
+        <Button
+            android:id="@+id/btn_ir_pedido"
+            android:layout_width="219dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:background="@drawable/round_button"
+            android:fontFamily="@font/inter_semibold"
+            android:text="@string/irPedido"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:layout_marginTop="20dp"/>
+
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/naranjaClaro"
+    android:orientation="vertical"
+    android:padding="3pt"
+    tools:context=".EspecificacionRollo">
+
+
+    <ImageView
+        android:id="@+id/iv_rollo"
+        android:layout_width="129dp"
+        android:layout_height="102dp"
+        android:layout_gravity="center"
+        app:srcCompat="@drawable/california" />
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:columnCount="2"
+        android:paddingHorizontal="40dp">
+
+
+        <TextView
+            android:id="@+id/tv_nombreEspecificacionRollo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="70dp"
+            android:fontFamily="@font/inter_bold"
+            android:text="California tradicional"
+            android:textColor="@color/white"
+            android:textSize="10sp" />
+
+
+        <TextView
+            android:id="@+id/tv_especificacionPrecio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+
+            android:fontFamily="@font/inter_regular"
+            android:text="$110.00"
+            android:textColor="@color/white"
+            android:textSize="15sp" />
+
+
+    </GridLayout>
+
+    <TextView
+        android:id="@+id/tv_especificacionDescripcion"
+        android:layout_width="325dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:fontFamily="@font/inter_regular"
+        android:text=""
+        android:textColor="@color/white"
+        android:textSize="13dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="35dp"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/inter_bold"
+        android:text="¿Empanizado o natural?"
+        android:textColor="@color/white"
+        android:textSize="14sp" />
+
+    <CheckBox
+        android:id="@+id/checkBox"
+        android:layout_width="match_parent"
+        android:layout_height="23dp"
+        android:text="Empanizado"
+        android:textColor="@color/white" />
+
+    <CheckBox
+        android:id="@+id/checkBox2"
+        android:layout_width="match_parent"
+        android:layout_height="23dp"
+        android:text="Natural"
+        android:textColor="@color/white" />
+
+    <CheckBox
+        android:id="@+id/checkBox3"
+        android:layout_width="match_parent"
+        android:layout_height="23dp"
+        android:text="Mitad y mitad"
+        android:textColor="@color/white" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginRight="15dp"
+        android:background="@color/white"
+        android:layout_marginTop="5dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="35dp"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/inter_bold"
+        android:text="¿Con algo o sin alga?"
+        android:textColor="@color/white"
+        android:textSize="14sp" />
+
+    <CheckBox
+        android:id="@+id/checkBox4"
+        android:layout_width="match_parent"
+        android:layout_height="23dp"
+        android:text="Con alga"
+        android:textColor="@color/white" />
+
+    <CheckBox
+        android:id="@+id/checkBox5"
+        android:layout_width="match_parent"
+        android:layout_height="23dp"
+        android:text="Sin alga"
+        android:textColor="@color/white" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginRight="15dp"
+        android:background="@color/white"
+        android:layout_marginTop="5dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="35dp"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/inter_bold"
+        android:text="¿Desea agregar un ingrediente extra?"
+        android:textColor="@color/white"
+        android:textSize="14sp" />
+
+    <CheckBox
+        android:id="@+id/checkBox111"
+        android:layout_width="match_parent"
+        android:layout_height="23dp"
+        android:text="Carne + $20.00"
+        android:textColor="@color/white" />
+
+    <CheckBox
+        android:id="@+id/checkBox122"
+        android:layout_width="match_parent"
+        android:layout_height="23dp"
+        android:text="Camarón + $20.00"
+        android:textColor="@color/white" />
+
+    <CheckBox
+        android:id="@+id/checkBox6"
+        android:layout_width="match_parent"
+        android:layout_height="23dp"
+        android:text="Pollo + $20.00"
+        android:textColor="@color/white" />
+
+    <CheckBox
+        android:id="@+id/checkBox7"
+        android:layout_width="match_parent"
+        android:layout_height="23dp"
+        android:text="Tocino + $20.00"
+        android:textColor="@color/white" />
+
+    <CheckBox
+        android:id="@+id/checkBox8"
+        android:layout_width="match_parent"
+        android:layout_height="23dp"
+        android:text="Surimi + $20.00"
+        android:textColor="@color/white" />
+
+    <CheckBox
+        android:id="@+id/checkBox9"
+        android:layout_width="match_parent"
+        android:layout_height="23dp"
+        android:text="Tampico + $20.00"
+        android:textColor="@color/white" />
+
+    <CheckBox
+        android:id="@+id/checkBox10"
+        android:layout_width="match_parent"
+        android:layout_height="23dp"
+        android:text="Gratinado + $20.00"
+        android:textColor="@color/white" />
+
+    <Button
+        android:id="@+id/btn_especificacion_agregar"
+        android:layout_width="128dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/round_button"
+        android:fontFamily="@font/inter_semibold"
+        android:text="@string/agregar"
+        android:textSize="11sp"
+        android:textColor="@color/white"
+        android:textAllCaps="false"/>
+
+    <Button
+        android:id="@+id/btn_especificacion_regresar"
+        android:layout_width="128dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/round_button"
+        android:fontFamily="@font/inter_semibold"
+        android:text="@string/regresar"
+        android:textSize="11sp"
+        android:textColor="@color/white"
+        android:textAllCaps="false"/>
+
+</LinearLayout>

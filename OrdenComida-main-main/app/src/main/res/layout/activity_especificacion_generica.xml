@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/naranjaClaro"
+    android:orientation="vertical"
+    android:padding="3pt"
+    tools:context=".EspecificacionGenerica">
+
+
+    <ImageView
+        android:id="@+id/iv_especificar"
+        android:layout_width="129dp"
+        android:layout_height="102dp"
+        android:layout_gravity="center"
+        app:srcCompat="@drawable/ordendetampico" />
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:columnCount="2"
+        android:paddingHorizontal="40dp">
+
+
+        <TextView
+            android:id="@+id/tv_nombreComida"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="40dp"
+            android:fontFamily="@font/inter_bold"
+            android:text="Orden de tampico"
+            android:textColor="@color/white"
+            android:textSize="15sp" />
+
+
+        <TextView
+            android:id="@+id/tv_precio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+
+            android:fontFamily="@font/inter_regular"
+            android:text="$35.00"
+            android:textColor="@color/white"
+            android:textSize="15sp" />
+
+
+    </GridLayout>
+
+    <TextView
+        android:id="@+id/tv_descripcion"
+        android:layout_width="325dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:fontFamily="@font/inter_regular"
+        android:textColor="@color/white"
+        android:textSize="13dp"
+        android:layout_marginBottom="340dp"/>
+
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:columnCount="3"
+        android:paddingHorizontal="40dp">
+
+        <Button
+            android:id="@+id/btn_especificacion_menos"
+            android:layout_width="40dp"
+
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:background="@drawable/round_button"
+            android:fontFamily="@font/inter_semibold"
+            android:text="-"
+            android:textSize="11sp"
+            android:textColor="@color/white"
+            android:layout_marginLeft="60dp"/>
+
+        <TextView
+            android:id="@+id/tv_cantidad"
+            android:layout_width="128dp"
+            android:layout_height="40dp"
+            android:text="1"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:fontFamily="@font/inter_regular"
+            android:background="@drawable/round_button"/>
+
+        <Button
+            android:id="@+id/btn_especificacion_mas"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_marginRight="50dp"
+            android:background="@drawable/round_button"
+            android:fontFamily="@font/inter_semibold"
+            android:text="+"
+            android:textSize="11sp"
+            android:textColor="@color/white"/>
+    </GridLayout>
+
+    <Button
+        android:id="@+id/btn_especificacion_agregar"
+        android:layout_width="128dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/round_button"
+        android:fontFamily="@font/inter_semibold"
+        android:text="@string/agregar"
+        android:textAllCaps="false"
+        android:textSize="11sp"
+        android:textColor="@color/white"/>
+
+    <Button
+        android:id="@+id/btn_especificacion_regresar"
+        android:layout_width="128dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/round_button"
+        android:fontFamily="@font/inter_semibold"
+        android:text="@string/regresar"
+        android:textAllCaps="false"
+        android:textSize="11sp"
+        android:textColor="@color/white"/>
+
+</LinearLayout>
