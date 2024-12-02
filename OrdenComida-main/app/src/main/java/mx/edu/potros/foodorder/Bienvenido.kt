@@ -7,16 +7,13 @@ import android.os.Handler
 import android.os.Looper
 import android.view.WindowManager
 import android.widget.ImageView
+import androidx.core.view.WindowCompat
 
 class Bienvenido : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        WindowCompat.setDecorFitsSystemWindows(window, false)
         setContentView(R.layout.activity_bienvenido)
-
-        window.setFlags(
-            WindowManager.LayoutParams.FLAG_FULLSCREEN,
-            WindowManager.LayoutParams.FLAGS_CHANGED
-        )
 
         Handler(Looper.getMainLooper()).postDelayed({
 

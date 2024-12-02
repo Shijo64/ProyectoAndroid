@@ -71,7 +71,7 @@
             android:name=".NuevaMesa"
             android:exported="false" />
         <activity
-            android:name=".Cuenta"
+            android:name=".Modelos.Cuenta"
             android:exported="false" />
         <activity
             android:name=".SplashActivity"

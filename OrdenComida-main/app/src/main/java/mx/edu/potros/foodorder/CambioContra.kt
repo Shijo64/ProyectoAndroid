@@ -10,7 +10,7 @@ class CambioContra : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_cambio_contra)
 
-        val btnGuardar: Button = findViewById(R.id.btn_guardar)
+        //val btnGuardar: Button = findViewById(R.id.btn_guardar)
 
 
     }

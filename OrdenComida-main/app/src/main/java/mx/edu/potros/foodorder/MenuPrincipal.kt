@@ -8,14 +8,13 @@ import android.os.Bundle
 import android.util.TypedValue
 import android.view.Gravity
 import android.widget.Button
-import android.widget.HorizontalScrollView
 import android.widget.ImageView
 import android.widget.LinearLayout
-import android.widget.ScrollView
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
-import androidx.core.view.marginEnd
+import mx.edu.potros.foodorder.Modelos.Cuenta
+import mx.edu.potros.foodorder.Modelos.Mesa
 
 class MenuPrincipal : AppCompatActivity() {
 

@@ -1,4 +1,4 @@
-package mx.edu.potros.foodorder
+package mx.edu.potros.foodorder.Modelos
 
 import android.content.Context
 import android.content.Intent
@@ -9,6 +9,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
+import mx.edu.potros.foodorder.CobraCuenta
+import mx.edu.potros.foodorder.CuentaBD
+import mx.edu.potros.foodorder.Menu
+import mx.edu.potros.foodorder.MenuOrdenar
+import mx.edu.potros.foodorder.Platillo
+import mx.edu.potros.foodorder.R
 
 class Cuenta : AppCompatActivity() {
 
