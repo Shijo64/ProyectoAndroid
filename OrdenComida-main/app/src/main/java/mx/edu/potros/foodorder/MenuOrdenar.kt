@@ -7,15 +7,10 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
-import com.google.firebase.database.ktx.getValue
 
 class MenuOrdenar : AppCompatActivity() {
 
-    private val mesaRef = FirebaseDatabase.getInstance().getReference("Mesas")
+    //private val mesaRef = FirebaseDatabase.getInstance().getReference("Mesas")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -56,7 +51,7 @@ class MenuOrdenar : AppCompatActivity() {
 
         var nombreCuenta: String = etNombreCuenta.text.toString().trim()
 
-        mesaRef.orderByChild("nombre").equalTo(mesa).addListenerForSingleValueEvent(object: ValueEventListener {
+        /*mesaRef.orderByChild("nombre").equalTo(mesa).addListenerForSingleValueEvent(object: ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 for (s in snapshot.children) {
                     val mesaExistente = s.getValue(Mesa::class.java)
@@ -85,6 +80,6 @@ class MenuOrdenar : AppCompatActivity() {
             }
 
             override fun onCancelled(error: DatabaseError) {}
-        })
+        })*/
     }
 }

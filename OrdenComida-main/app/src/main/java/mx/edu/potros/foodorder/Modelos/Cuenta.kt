@@ -1,4 +1,4 @@
-package mx.edu.potros.foodorder
+package mx.edu.potros.foodorder.Modelos
 
 import android.content.Context
 import android.content.Intent
@@ -9,16 +9,18 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
-import com.google.firebase.database.ktx.getValue
+import mx.edu.potros.foodorder.CobraCuenta
+import mx.edu.potros.foodorder.CuentaBD
+import mx.edu.potros.foodorder.Menu
+import mx.edu.potros.foodorder.MenuOrdenar
+import mx.edu.potros.foodorder.Platillo
+import mx.edu.potros.foodorder.R
 
 class Cuenta : AppCompatActivity() {
 
-    private val platilloRef = FirebaseDatabase.getInstance().getReference("Platillos")
-    private val mesaRef = FirebaseDatabase.getInstance().getReference("Mesas")
+    //obtener platillo y mesa de la base de datos
+    /*private val platilloRef = FirebaseDatabase.getInstance().getReference("Platillos")
+    private val mesaRef = FirebaseDatabase.getInstance().getReference("Mesas")*/
     var mesa: Mesa? = null
     var platillos = ArrayList<Platillo>()
     var adapter: CuentaAdapter? = null
@@ -70,6 +72,8 @@ class Cuenta : AppCompatActivity() {
     }
 
     private fun getMesaYPlatillos(numMesa: String?, gridView: GridView) {
+        //obtener mesa y platillos de la base de datos
+        /*
         mesaRef.orderByChild("nombre").equalTo(numMesa).addListenerForSingleValueEvent(object: ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 for (s in snapshot.children) {
@@ -92,11 +96,12 @@ class Cuenta : AppCompatActivity() {
             }
 
             override fun onCancelled(error: DatabaseError) {}
-        })
+        })*/
     }
 
     private fun borrarMesa(numMesa: String?) {
-        mesaRef.orderByChild("nombre").equalTo(numMesa).addListenerForSingleValueEvent(object: ValueEventListener {
+        //borrar mesa de la base de datos
+       /* mesaRef.orderByChild("nombre").equalTo(numMesa).addListenerForSingleValueEvent(object: ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 for (s in snapshot.children) {
                     s.ref.removeValue()
@@ -108,7 +113,7 @@ class Cuenta : AppCompatActivity() {
             }
 
             override fun onCancelled(error: DatabaseError) {}
-        })
+        })*/
     }
 
     class CuentaAdapter : BaseAdapter {

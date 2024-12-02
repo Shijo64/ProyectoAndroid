@@ -7,24 +7,21 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.ktx.Firebase
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var auth: FirebaseAuth
+    //private lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        auth = Firebase.auth
+        /*auth = Firebase.auth
         val currentUser = auth.currentUser
 
         if (currentUser != null) {
             reload()
-        }
+        }*/
 
         val tvOlvidasteContra: TextView = findViewById(R.id.tv_olvidasteContra)
         val btnLogin: Button = findViewById(R.id.btn_login)
@@ -57,14 +54,14 @@ class MainActivity : AppCompatActivity() {
         var usuario: String = etUsuario.text.toString().trim()
         var password: String = etPassword.text.toString().trim()
 
-        auth.signInWithEmailAndPassword(usuario, password).addOnCompleteListener(this) { task ->
+        /*auth.signInWithEmailAndPassword(usuario, password).addOnCompleteListener(this) { task ->
             if (task.isSuccessful) {
                 Toast.makeText(this@MainActivity, "Inicio de sesión exitoso", Toast.LENGTH_SHORT).show()
                 reload()
             } else {
                 Toast.makeText(this@MainActivity, "Hubo un problema al iniciar sesión", Toast.LENGTH_SHORT).show()
             }
-        }
+        }*/
     }
 
     private fun reload() {

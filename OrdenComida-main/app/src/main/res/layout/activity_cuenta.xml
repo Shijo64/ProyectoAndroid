@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/naranjaClaro"
     android:orientation="vertical"
-    tools:context=".Cuenta">
+    tools:context=".Modelos.Cuenta">
 
     <TextView
         android:id="@+id/tv_num_mesa"

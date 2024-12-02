@@ -7,26 +7,16 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
-import com.google.firebase.auth.FirebaseAuthUserCollisionException
-import com.google.firebase.auth.FirebaseAuthWeakPasswordException
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
-import com.google.firebase.ktx.Firebase
 
 class Registro : AppCompatActivity() {
 
-    private lateinit var auth: FirebaseAuth
+   // private lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_registro)
 
-        auth = Firebase.auth
+        //auth = Firebase.auth
 
         val btnCrear: Button = findViewById(R.id.btn_crear)
 
@@ -55,7 +45,7 @@ class Registro : AppCompatActivity() {
             return
         }
 
-        auth.createUserWithEmailAndPassword(correo, password).addOnCompleteListener(this) { task ->
+        /*auth.createUserWithEmailAndPassword(correo, password).addOnCompleteListener(this) { task ->
             if (task.isSuccessful) {
                 Toast.makeText(this@Registro, "Usuario registrado exitosamente", Toast.LENGTH_SHORT).show()
                 reload()
@@ -74,7 +64,7 @@ class Registro : AppCompatActivity() {
                     }
                 }
             }
-        }
+        }*/
     }
 
     private fun reload() {

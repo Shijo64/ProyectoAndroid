@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
+import mx.edu.potros.foodorder.Modelos.Cuenta
 
 class FinCuenta : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

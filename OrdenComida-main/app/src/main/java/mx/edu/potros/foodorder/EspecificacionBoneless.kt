@@ -8,14 +8,11 @@ import android.widget.CheckBox
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
 
 class EspecificacionBoneless : AppCompatActivity() {
 
-    private val mesaRef = FirebaseDatabase.getInstance().getReference("Mesas")
+    //obtener mesa de la base de datos
+    //private val mesaRef = FirebaseDatabase.getInstance().getReference("Mesas")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -91,7 +88,8 @@ class EspecificacionBoneless : AppCompatActivity() {
 
         val platillo = PlatilloCuenta(1, salsaSeleccionada, "Boneless")
 
-        mesaRef.orderByChild("nombre").equalTo(numMesa).addListenerForSingleValueEvent(object: ValueEventListener {
+        //añadir platillo a cuenta
+        /*mesaRef.orderByChild("nombre").equalTo(numMesa).addListenerForSingleValueEvent(object: ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 for (s in snapshot.children) {
                     var mesaExistente = s.getValue(Mesa::class.java)
@@ -117,6 +115,6 @@ class EspecificacionBoneless : AppCompatActivity() {
             }
 
             override fun onCancelled(error: DatabaseError) {}
-        })
+        })*/
     }
 }
