@@ -5,14 +5,11 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
 
 class CobraCuenta : AppCompatActivity() {
 
-    private val mesaRef = FirebaseDatabase.getInstance().getReference("Mesas")
+    //obtener mesa de firebase
+    //private val mesaRef = FirebaseDatabase.getInstance().getReference("Mesas")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,7 +38,8 @@ class CobraCuenta : AppCompatActivity() {
     }
 
     private fun borrarCuenta(numMesa: String?, nombreCuenta: String?) {
-        mesaRef.orderByChild("nombre").equalTo(numMesa).addListenerForSingleValueEvent(object: ValueEventListener {
+        //borrar cuenta de firebase
+        /*mesaRef.orderByChild("nombre").equalTo(numMesa).addListenerForSingleValueEvent(object: ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 for (s in snapshot.children) {
                     val mesa = s.getValue(Mesa::class.java)
@@ -63,6 +61,6 @@ class CobraCuenta : AppCompatActivity() {
             }
 
             override fun onCancelled(error: DatabaseError) {}
-        })
+        })*/
     }
 }

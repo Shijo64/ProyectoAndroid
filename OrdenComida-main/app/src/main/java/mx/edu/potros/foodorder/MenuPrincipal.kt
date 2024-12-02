@@ -16,14 +16,10 @@ import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
 import androidx.core.view.marginEnd
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
 
 class MenuPrincipal : AppCompatActivity() {
 
-    private val mesaRef = FirebaseDatabase.getInstance().getReference("Mesas")
+    //private val mesaRef = FirebaseDatabase.getInstance().getReference("Mesas")
     var mesas = ArrayList<Mesa>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -50,7 +46,7 @@ class MenuPrincipal : AppCompatActivity() {
     }
 
     private fun cargarMesas(containerLayout: LinearLayout) {
-        mesaRef.addListenerForSingleValueEvent(object : ValueEventListener {
+        /*mesaRef.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 for (s in snapshot.children) {
                     val mesa = s.getValue(Mesa::class.java)
@@ -61,7 +57,7 @@ class MenuPrincipal : AppCompatActivity() {
             }
 
             override fun onCancelled(error: DatabaseError) {}
-        })
+        })*/
     }
 
     private fun cargarHorizontalScrollView(containerLayout: LinearLayout) {
