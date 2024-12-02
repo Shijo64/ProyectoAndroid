@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "377357118099",
+    "firebase_url": "https://foodorder-11e4e-default-rtdb.firebaseio.com",
+    "project_id": "foodorder-11e4e",
+    "storage_bucket": "foodorder-11e4e.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:377357118099:android:06a200036ce8329f233b66",
+        "android_client_info": {
+          "package_name": "mx.edu.potros.foodorder"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC5AXLokUw8y4_VZ5sSs5L68wCYq6Zyi_A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/naranjaClaro"
+    android:orientation="vertical"
+    android:padding="3pt"
+    tools:context=".EspecificacionTeriyaki">
+
+
+    <ImageView
+        android:id="@+id/iv_teriyaki"
+        android:layout_width="129dp"
+        android:layout_height="102dp"
+        android:layout_gravity="center"
+        app:srcCompat="@drawable/teriyaki" />
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:columnCount="2"
+        android:paddingHorizontal="40dp">
+
+        <TextView
+            android:id="@+id/tv_nombre_teriyaki"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="70dp"
+            android:fontFamily="@font/inter_bold"
+            android:text="Teriyaki"
+            android:textColor="@color/white"
+            android:textSize="10sp" />
+
+
+        <TextView
+            android:id="@+id/tv_especificacionPrecio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+
+            android:fontFamily="@font/inter_regular"
+            android:text="$150.00"
+            android:textColor="@color/white"
+            android:textSize="15sp" />
+
+
+    </GridLayout>
+
+    <TextView
+        android:id="@+id/tv_especificacionDescripcion"
+        android:layout_width="325dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:fontFamily="@font/inter_regular"
+        android:text=""
+        android:textColor="@color/white"
+        android:textSize="13dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="35dp"
+
+
+        android:fontFamily="@font/inter_bold"
+        android:text="Elige tu arroz"
+        android:textColor="@color/white"
+        android:textSize="14sp" />
+
+    <CheckBox
+        android:id="@+id/checkBox"
+        android:layout_width="match_parent"
+        android:layout_height="23dp"
+        android:text="Arroz Blanco"
+        android:textColor="@color/white" />
+
+    <CheckBox
+        android:id="@+id/checkBox2"
+        android:layout_width="match_parent"
+        android:layout_height="23dp"
+        android:text="Arroz frito"
+        android:textColor="@color/white" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginRight="15dp"
+        android:background="@color/white"
+        android:layout_marginTop="5dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="35dp"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/inter_bold"
+        android:text="Elige tu preparación"
+        android:textColor="@color/white"
+        android:textSize="14sp" />
+
+    <CheckBox
+        android:id="@+id/checkBox3"
+        android:layout_width="match_parent"
+        android:layout_height="23dp"
+        android:text="Al vapor"
+        android:textColor="@color/white" />
+
+    <CheckBox
+        android:id="@+id/checkBox4"
+        android:layout_width="match_parent"
+        android:layout_height="23dp"
+        android:text="Salteadas"
+        android:textColor="@color/white" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginRight="15dp"
+        android:background="@color/white"
+        android:layout_marginTop="5dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="35dp"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/inter_bold"
+        android:text="Elige tu ingrediente"
+        android:textColor="@color/white"
+        android:textSize="14sp" />
+
+    <CheckBox
+        android:id="@+id/checkBox5"
+        android:layout_width="match_parent"
+        android:layout_height="23dp"
+        android:text="Camarón"
+        android:textColor="@color/white" />
+
+    <CheckBox
+        android:id="@+id/checkBox6"
+        android:layout_width="match_parent"
+        android:layout_height="23dp"
+        android:text="Pollo"
+        android:textColor="@color/white" />
+
+    <CheckBox
+        android:id="@+id/checkBox7"
+        android:layout_width="match_parent"
+        android:layout_height="23dp"
+        android:text="Carne"
+        android:textColor="@color/white" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginRight="15dp"
+        android:background="@color/white"
+        android:layout_marginTop="5dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="35dp"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/inter_bold"
+        android:text="Elige tus extras"
+        android:textColor="@color/white"
+        android:textSize="14sp" />
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:columnCount="2">
+
+        <CheckBox
+            android:id="@+id/checkBox8"
+            android:layout_width="wrap_content"
+            android:layout_height="23dp"
+            android:text="Camarón"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="235dp"
+            android:fontFamily="@font/inter_regular"
+            android:text="$20.00"
+            android:textColor="@color/white"/>
+
+        <CheckBox
+            android:id="@+id/checkBox9"
+            android:layout_width="wrap_content"
+            android:layout_height="23dp"
+            android:text="Pollo"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="235dp"
+            android:fontFamily="@font/inter_regular"
+            android:text="$20.00"
+            android:textColor="@color/white"/>
+
+        <CheckBox
+            android:id="@+id/checkBox10"
+            android:layout_width="wrap_content"
+            android:layout_height="23dp"
+            android:text="Carne"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="235dp"
+            android:fontFamily="@font/inter_regular"
+            android:text="$20.00"
+            android:textColor="@color/white"/>
+    </GridLayout>
+
+    <Button
+        android:id="@+id/btn_especificacion_agregar"
+        android:layout_width="128dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/round_button"
+        android:fontFamily="@font/inter_semibold"
+        android:text="@string/agregar"
+        android:textSize="11sp"
+        android:textAllCaps="false"
+        android:textColor="@color/white"/>
+
+    <Button
+        android:id="@+id/btn_especificacion_regresar"
+        android:layout_width="128dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/round_button"
+        android:fontFamily="@font/inter_semibold"
+        android:text="@string/regresar"
+        android:textSize="11sp"
+        android:textAllCaps="false"
+        android:textColor="@color/white"/>
+
+
+</LinearLayout>

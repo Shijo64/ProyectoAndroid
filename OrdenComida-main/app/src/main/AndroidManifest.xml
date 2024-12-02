@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.FoodOrder"
+        tools:targetApi="31">
+        <activity
+            android:name=".MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CobraCuenta"
+            android:exported="false" />
+        <activity
+            android:name=".FinCuenta"
+            android:exported="false" />
+        <activity
+            android:name=".SeguirAgregando"
+            android:exported="false" />
+        <activity
+            android:name=".EspecificacionGenerica"
+            android:exported="false" />
+        <activity
+            android:name=".EspecificacionChickeMongolia"
+            android:exported="false" />
+        <activity
+            android:name=".EspecificacionTeriyaki"
+            android:exported="false" />
+        <activity
+            android:name=".EspecificacionRollo"
+            android:exported="false" />
+        <activity
+            android:name=".EspecificacionBoneless"
+            android:exported="false" />
+        <activity
+            android:name=".LoginVerificacion"
+            android:exported="false" />
+        <activity
+            android:name=".Catalogo"
+            android:exported="false" />
+        <activity
+            android:name=".CambioContra"
+            android:exported="false" />
+        <activity
+            android:name=".MenuPrincipal"
+            android:exported="false" />
+        <activity
+            android:name=".Bienvenido"
+            android:exported="false" />
+        <activity
+            android:name=".Salir"
+            android:exported="false" />
+        <activity
+            android:name=".Registro"
+            android:exported="false" />
+        <activity
+            android:name=".Menu"
+            android:exported="false" />
+        <activity
+            android:name=".MenuOrdenar"
+            android:exported="false" />
+        <activity
+            android:name=".NuevaMesa"
+            android:exported="false" />
+        <activity
+            android:name=".Cuenta"
+            android:exported="false" />
+        <activity
+            android:name=".SplashActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
