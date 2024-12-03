@@ -1,4 +1,4 @@
-package mx.edu.potros.foodorder
+package mx.edu.potros.foodorder.Activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -8,6 +8,12 @@ import android.widget.CheckBox
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.lifecycle.lifecycleScope
+import io.appwrite.ID
+import kotlinx.coroutines.launch
+import mx.edu.potros.foodorder.Managers.Appwrite
+import mx.edu.potros.foodorder.Models.PlatilloCuenta
+import mx.edu.potros.foodorder.R
 
 class EspecificacionBoneless : AppCompatActivity() {
 
@@ -21,6 +27,7 @@ class EspecificacionBoneless : AppCompatActivity() {
         var nombreCuenta: String? = ""
         var numMesa: String? = ""
         var numCuentas: String? = ""
+        var cuentaID: String? = ""
         val btnAgregar: Button = findViewById(R.id.btn_especificacion_agregar)
         val btnRegresar: Button = findViewById(R.id.btn_especificacion_regresar)
         val tvDescripcion: TextView = findViewById(R.id.tv_descripcion)
@@ -31,6 +38,7 @@ class EspecificacionBoneless : AppCompatActivity() {
             nombreCuenta = bundle.getString("cuenta")
             numMesa = bundle.getString("mesa")
             numCuentas = bundle.getString("numCuentas")
+            cuentaID = bundle.getString("cuentaID")
             tvDescripcion.setText(bundle.getString("descripcion"))
         }
 
@@ -40,7 +48,9 @@ class EspecificacionBoneless : AppCompatActivity() {
             builder.setMessage("¿Estás seguro de agregar ese platillo?")
 
             builder.setPositiveButton("Si") { dialog, which ->
-                agregarBoneless(nombreCuenta, numMesa, numCuentas)
+                lifecycleScope.launch {
+                    agregarBoneless(nombreCuenta, numMesa, numCuentas, cuentaID)
+                }
             }
 
             builder.setNegativeButton("No") { dialog, which ->
@@ -58,13 +68,14 @@ class EspecificacionBoneless : AppCompatActivity() {
             intent.putExtra("tipo", "entradas")
             intent.putExtra("mesa", numMesa)
             intent.putExtra("cuenta", nombreCuenta)
-            intent.putExtra("numCuentas", numCuentas)
+            intent.putExtra("cuentaID", numCuentas)
+            intent.putExtra("cuentaID", cuentaID)
             startActivity(intent)
             finish()
         }
     }
 
-    private fun agregarBoneless(nombreCuenta: String?, numMesa: String?, numCuentas: String?) {
+    private suspend fun agregarBoneless(nombreCuenta: String?, numMesa: String?, numCuentas: String?, cuentaID: String?) {
         val salsaBbq: CheckBox = findViewById(R.id.checkBox)
         val salsaBufalo: CheckBox = findViewById(R.id.checkBox2)
         val salsaMixta: CheckBox = findViewById(R.id.checkBox3)
@@ -86,7 +97,22 @@ class EspecificacionBoneless : AppCompatActivity() {
             return
         }
 
-        val platillo = PlatilloCuenta(1, salsaSeleccionada, "Boneless")
+        val platillo = PlatilloCuenta(
+            ID.unique().toString(),
+            cuentaID.toString(),
+            1,
+            salsaSeleccionada,
+            "Boneless")
+
+        val platilloID = Appwrite.database.agregarPlatillo(platillo)
+
+        var intent = Intent(this@EspecificacionBoneless, SeguirAgregando::class.java)
+        intent.putExtra("mesa", numMesa)
+        intent.putExtra("cuenta", nombreCuenta)
+        intent.putExtra("numCuentas", numCuentas)
+        intent.putExtra("cuentaID", cuentaID)
+        startActivity(intent)
+        finish()
 
         //añadir platillo a cuenta
         /*mesaRef.orderByChild("nombre").equalTo(numMesa).addListenerForSingleValueEvent(object: ValueEventListener {

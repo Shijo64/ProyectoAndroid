@@ -1,4 +1,4 @@
-package mx.edu.potros.foodorder
+package mx.edu.potros.foodorder.Activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -7,25 +7,28 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.launch
+import mx.edu.potros.foodorder.Managers.Appwrite
+import mx.edu.potros.foodorder.R
 
 class Registro : AppCompatActivity() {
 
-   // private lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_registro)
 
-        //auth = Firebase.auth
-
         val btnCrear: Button = findViewById(R.id.btn_crear)
 
         btnCrear.setOnClickListener {
-            signUp()
+            lifecycleScope.launch {
+                signUp()
+            }
         }
     }
 
-    private fun signUp() {
+    private suspend fun signUp() {
         var etCorreo: EditText = findViewById(R.id.input_correo)
         var etPassword: EditText = findViewById(R.id.input_password)
         var etVerifyPassword: EditText = findViewById(R.id.inpud_verify_password)
@@ -43,6 +46,18 @@ class Registro : AppCompatActivity() {
             var invalidPass: TextView = findViewById(R.id.tv_invalidpass)
             invalidPass.setText("La contraseña no coincide")
             return
+        }
+
+        try {
+            var result = Appwrite.account.register(correo, password)
+            if (result != null) {
+                Toast.makeText(this@Registro, "Usuario registrado exitosamente", Toast.LENGTH_SHORT).show()
+                this.reload()
+            } else {
+                Toast.makeText(this@Registro, "No se pudo registrar el usuario", Toast.LENGTH_SHORT).show()
+            }
+        } catch(e : Exception) {
+            e.printStackTrace()
         }
 
         /*auth.createUserWithEmailAndPassword(correo, password).addOnCompleteListener(this) { task ->

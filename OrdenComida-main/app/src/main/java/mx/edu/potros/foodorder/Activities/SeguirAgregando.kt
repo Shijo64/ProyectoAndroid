@@ -1,9 +1,11 @@
-package mx.edu.potros.foodorder
+package mx.edu.potros.foodorder.Activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import mx.edu.potros.foodorder.FinCuenta
+import mx.edu.potros.foodorder.R
 
 class SeguirAgregando : AppCompatActivity() {
 
@@ -15,6 +17,7 @@ class SeguirAgregando : AppCompatActivity() {
         var numMesa: String? = ""
         var nombreCuenta: String? = ""
         var numCuentas: String? = ""
+        var cuentaID: String? = ""
         val btnSeguir: Button = findViewById(R.id.btn_seguir)
         val btnFinalizar: Button = findViewById(R.id.btn_finalizar)
 
@@ -24,6 +27,7 @@ class SeguirAgregando : AppCompatActivity() {
             numMesa = bundle.getString("mesa")
             nombreCuenta = bundle.getString("cuenta")
             numCuentas = bundle.getString("numCuentas")
+            cuentaID = bundle.getString("cuentaID")
         }
 
         btnSeguir.setOnClickListener {
@@ -31,6 +35,7 @@ class SeguirAgregando : AppCompatActivity() {
             intent.putExtra("mesa", numMesa)
             intent.putExtra("cuenta", nombreCuenta)
             intent.putExtra("numCuentas", numCuentas)
+            intent.putExtra("cuentaID", cuentaID)
             startActivity(intent)
             finish()
         }
@@ -44,6 +49,7 @@ class SeguirAgregando : AppCompatActivity() {
         var intent = Intent(this@SeguirAgregando, FinCuenta::class.java)
         intent.putExtra("mesa", numMesa)
         intent.putExtra("numCuentas", numCuentas)
+        intent.putExtra("cuentaID", numCuentas)
         startActivity(intent)
         finish()
     }

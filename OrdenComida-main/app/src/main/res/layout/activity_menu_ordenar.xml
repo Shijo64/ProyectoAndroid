@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/naranjaClaro"
-    tools:context=".MenuOrdenar">
+    tools:context=".Activities.MenuOrdenar">
 
     <TextView
         android:id="@+id/tv_numeroMesa"

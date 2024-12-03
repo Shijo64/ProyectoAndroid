@@ -1,10 +1,11 @@
-package mx.edu.potros.foodorder
+package mx.edu.potros.foodorder.Activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
+import mx.edu.potros.foodorder.R
 
 class Menu : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -14,6 +15,7 @@ class Menu : AppCompatActivity() {
         var nombreCuenta: String? = ""
         var numCuentas: String? = ""
         var numMesa: String? = ""
+        var cuentaID: String? = ""
         val tvNombreMesaCuenta: TextView = findViewById(R.id.tv_nombreMesaCuenta)
         val ivEntradas: ImageView = findViewById(R.id.iv_entradas)
         val ivRollos: ImageView = findViewById(R.id.iv_rollos)
@@ -30,6 +32,7 @@ class Menu : AppCompatActivity() {
             nombreCuenta = bundle.getString("cuenta")
             numCuentas = bundle.getString("numCuentas")
             numMesa = bundle.getString("mesa")
+            cuentaID = bundle.getString("cuentaID")
         }
 
         ivEntradas.setOnClickListener {
@@ -38,6 +41,7 @@ class Menu : AppCompatActivity() {
             intent.putExtra("cuenta", nombreCuenta)
             intent.putExtra("mesa", numMesa)
             intent.putExtra("numCuentas", numCuentas)
+            intent.putExtra("cuentaID", cuentaID)
             startActivity(intent)
             finish()
         }
@@ -48,6 +52,7 @@ class Menu : AppCompatActivity() {
             intent.putExtra("cuenta", nombreCuenta)
             intent.putExtra("mesa", numMesa)
             intent.putExtra("numCuentas", numCuentas)
+            intent.putExtra("cuentaID", cuentaID)
             startActivity(intent)
             finish()
         }
@@ -58,6 +63,7 @@ class Menu : AppCompatActivity() {
             intent.putExtra("cuenta", nombreCuenta)
             intent.putExtra("mesa", numMesa)
             intent.putExtra("numCuentas", numCuentas)
+            intent.putExtra("cuentaID", cuentaID)
             startActivity(intent)
             finish()
         }
@@ -68,6 +74,7 @@ class Menu : AppCompatActivity() {
             intent.putExtra("cuenta", nombreCuenta)
             intent.putExtra("mesa", numMesa)
             intent.putExtra("numCuentas", numCuentas)
+            intent.putExtra("cuentaID", cuentaID)
             startActivity(intent)
             finish()
         }
@@ -78,6 +85,7 @@ class Menu : AppCompatActivity() {
             intent.putExtra("cuenta", nombreCuenta)
             intent.putExtra("mesa", numMesa)
             intent.putExtra("numCuentas", numCuentas)
+            intent.putExtra("cuentaID", cuentaID)
             startActivity(intent)
             finish()
         }
@@ -88,6 +96,7 @@ class Menu : AppCompatActivity() {
             intent.putExtra("cuenta", nombreCuenta)
             intent.putExtra("mesa", numMesa)
             intent.putExtra("numCuentas", numCuentas)
+            intent.putExtra("cuentaID", cuentaID)
             startActivity(intent)
             finish()
         }

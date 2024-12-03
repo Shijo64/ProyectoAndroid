@@ -1,4 +1,4 @@
-package mx.edu.potros.foodorder
+package mx.edu.potros.foodorder.Activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -7,21 +7,24 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.launch
+import mx.edu.potros.foodorder.LoginVerificacion
+import mx.edu.potros.foodorder.Managers.Appwrite
+import mx.edu.potros.foodorder.R
 
 class MainActivity : AppCompatActivity() {
-
-    //private lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        /*auth = Firebase.auth
-        val currentUser = auth.currentUser
-
-        if (currentUser != null) {
-            reload()
-        }*/
+        lifecycleScope.launch {
+            Appwrite.init(applicationContext)
+            val result = Appwrite.account.getLoggedIn()
+            if (result != null) {
+                reload()
+            }
+        }
 
         val tvOlvidasteContra: TextView = findViewById(R.id.tv_olvidasteContra)
         val btnLogin: Button = findViewById(R.id.btn_login)
@@ -51,17 +54,18 @@ class MainActivity : AppCompatActivity() {
             return
         }
 
-        var usuario: String = etUsuario.text.toString().trim()
-        var password: String = etPassword.text.toString().trim()
+        val usuario: String = etUsuario.text.toString().trim()
+        val password: String = etPassword.text.toString().trim()
 
-        /*auth.signInWithEmailAndPassword(usuario, password).addOnCompleteListener(this) { task ->
-            if (task.isSuccessful) {
+        lifecycleScope.launch {
+            val result = Appwrite.account.login(usuario, password)
+            if (result != null) {
                 Toast.makeText(this@MainActivity, "Inicio de sesión exitoso", Toast.LENGTH_SHORT).show()
                 reload()
             } else {
                 Toast.makeText(this@MainActivity, "Hubo un problema al iniciar sesión", Toast.LENGTH_SHORT).show()
             }
-        }*/
+        }
     }
 
     private fun reload() {

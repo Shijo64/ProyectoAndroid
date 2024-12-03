@@ -7,7 +7,7 @@
     android:background="@color/naranjaClaro"
     android:orientation="vertical"
     android:padding="3pt"
-    tools:context=".EspecificacionBoneless">
+    tools:context=".Activities.EspecificacionBoneless">
 
 
     <ImageView

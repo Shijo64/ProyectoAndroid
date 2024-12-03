@@ -1,14 +1,16 @@
-package mx.edu.potros.foodorder
+package mx.edu.potros.foodorder.Activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
-import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Spinner
 import android.widget.Toast
-import androidx.core.view.get
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.launch
+import mx.edu.potros.foodorder.Managers.Appwrite
+import mx.edu.potros.foodorder.R
 
 class NuevaMesa : AppCompatActivity() {
 
@@ -23,11 +25,15 @@ class NuevaMesa : AppCompatActivity() {
         val ivVariasCuentas: ImageView = findViewById(R.id.iv_varias_cuentas)
 
         ivUnaCuenta.setOnClickListener {
-            creaMesa("una")
+            lifecycleScope.launch {
+                creaMesa("una")
+            }
         }
 
         ivVariasCuentas.setOnClickListener {
-            creaMesa("varias")
+            lifecycleScope.launch {
+                creaMesa("varias")
+            }
         }
 
         btnRegresar.setOnClickListener {
@@ -37,12 +43,21 @@ class NuevaMesa : AppCompatActivity() {
         }
     }
 
-    private fun creaMesa(numCuentas: String) {
+    private suspend fun creaMesa(numCuentas: String) {
         var numMesa: Spinner = findViewById(R.id.spinner_numero_mesa)
 
 
         var numeroMesa: String = numMesa.selectedItem.toString()
 
+        val mesaID = Appwrite.database.addMesa(numeroMesa.toInt())
+        Toast.makeText(this@NuevaMesa, "Mesa agregada exitosamente", Toast.LENGTH_SHORT).show()
+
+        var intent = Intent(this@NuevaMesa, MenuOrdenar::class.java)
+        intent.putExtra("mesa", numeroMesa)
+        intent.putExtra("mesaID", mesaID)
+        intent.putExtra("numCuentas", numCuentas)
+        startActivity(intent)
+        finish()
         /*mesaRef.orderByChild("nombre").equalTo(numeroMesa).addListenerForSingleValueEvent(object: ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 for (s in snapshot.children) {
