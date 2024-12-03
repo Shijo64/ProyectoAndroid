@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/amarillento"
     android:orientation="vertical"
-    tools:context=".SeguirAgregando">
+    tools:context=".Activities.SeguirAgregando">
 
     <LinearLayout
         android:layout_width="310dp"

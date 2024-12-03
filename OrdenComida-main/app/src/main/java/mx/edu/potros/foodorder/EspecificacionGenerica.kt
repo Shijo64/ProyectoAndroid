@@ -7,6 +7,7 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
+import mx.edu.potros.foodorder.Activities.Catalogo
 
 class EspecificacionGenerica : AppCompatActivity() {
 
@@ -107,7 +108,7 @@ class EspecificacionGenerica : AppCompatActivity() {
     }
 
     private fun agregarPlatillo(cantidad: Int, nombrePlatillo: String?, nombreCuenta: String?, numMesa: String?, numCuentas: String?) {
-        val platillo = PlatilloCuenta(cantidad, null, nombrePlatillo)
+        //val platillo = PlatilloCuenta(cantidad, null, nombrePlatillo)
 
         /*mesaRef.orderByChild("nombre").equalTo(numMesa).addListenerForSingleValueEvent(object: ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {

@@ -9,6 +9,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import mx.edu.potros.foodorder.Activities.Catalogo
 
 class EspecificacionRollo : AppCompatActivity() {
 
@@ -148,7 +149,7 @@ class EspecificacionRollo : AppCompatActivity() {
         }
 
         val extras = arroz + alga + ingredienteExtra
-        val platillo = PlatilloCuenta(1, extras, nombrePlatillo)
+        //val platillo = PlatilloCuenta(1, extras, nombrePlatillo)
 
         /*mesaRef.orderByChild("nombre").equalTo(numMesa).addListenerForSingleValueEvent(object: ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {

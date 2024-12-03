@@ -1,4 +1,4 @@
-package mx.edu.potros.foodorder
+package mx.edu.potros.foodorder.Activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -7,6 +7,11 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.launch
+import mx.edu.potros.foodorder.Managers.Appwrite
+import mx.edu.potros.foodorder.Models.Cuenta
+import mx.edu.potros.foodorder.R
 
 class MenuOrdenar : AppCompatActivity() {
 
@@ -18,6 +23,7 @@ class MenuOrdenar : AppCompatActivity() {
 
         var numeroMesa: String? = ""
         var numCuentas: String? = ""
+        var mesaID : String? = ""
         val tvNumeroMesa: TextView = findViewById(R.id.tv_numeroMesa)
         val btnOrdenar: Button = findViewById(R.id.btn_ordenar)
         val btnRegresar: Button = findViewById(R.id.btn_regresar)
@@ -26,12 +32,15 @@ class MenuOrdenar : AppCompatActivity() {
 
         if (bundle != null) {
             numeroMesa = bundle.getString("mesa")
-            numCuentas = bundle.getString("numCuentas")
+            mesaID = bundle.getString("mesaID")
+            numCuentas = bundle.getString("numCuenta")
             tvNumeroMesa.setText("Mesa " + numeroMesa)
         }
 
         btnOrdenar.setOnClickListener {
-            crearCuenta(numeroMesa, numCuentas)
+            lifecycleScope.launch {
+                crearCuenta(numeroMesa, numCuentas, mesaID)
+            }
         }
 
         btnRegresar.setOnClickListener {
@@ -41,7 +50,7 @@ class MenuOrdenar : AppCompatActivity() {
         }
     }
 
-    private fun crearCuenta(mesa: String?, numCuentas: String?) {
+    private suspend fun crearCuenta(numeroMesa: String?, numCuentas: String?, mesaID: String?) {
         var etNombreCuenta: EditText = findViewById(R.id.et_nombre_cuenta)
 
         if (etNombreCuenta.text.isBlank()) {
@@ -50,6 +59,24 @@ class MenuOrdenar : AppCompatActivity() {
         }
 
         var nombreCuenta: String = etNombreCuenta.text.toString().trim()
+        val cuenta = Cuenta(
+            nombre = nombreCuenta,
+            mesaID = mesaID.toString(),
+            numeroMesa = numeroMesa.toString(),
+            platillos = emptyList()
+        )
+        val cuentaID = Appwrite.database.crearCuenta(cuenta)
+
+        Toast.makeText(this@MenuOrdenar, "Cuenta agregada exitosamente", Toast.LENGTH_SHORT).show()
+
+        var intent = Intent(this@MenuOrdenar, Menu::class.java)
+        intent.putExtra("mesa", numeroMesa)
+        intent.putExtra("numCuentas", numCuentas)
+        intent.putExtra("cuenta", nombreCuenta)
+        intent.putExtra("cuentaID", cuentaID)
+        startActivity(intent)
+        finish()
+
 
         /*mesaRef.orderByChild("nombre").equalTo(mesa).addListenerForSingleValueEvent(object: ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {

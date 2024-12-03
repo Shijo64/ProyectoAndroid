@@ -8,6 +8,7 @@ import android.widget.CheckBox
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import mx.edu.potros.foodorder.Activities.Catalogo
 
 class EspecificacionTeriyaki : AppCompatActivity() {
 
@@ -139,7 +140,7 @@ class EspecificacionTeriyaki : AppCompatActivity() {
         }
 
         var extras = arroz + verduras + ingrediente + iExtra
-        val platillo = PlatilloCuenta(1, extras, "Teriyaki")
+        //val platillo = PlatilloCuenta(1, extras, "Teriyaki")
 
         /*mesaRef.orderByChild("nombre").equalTo(numMesa).addListenerForSingleValueEvent(object: ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {

@@ -1,5 +1,6 @@
-package mx.edu.potros.foodorder
+package mx.edu.potros.foodorder.Activities
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.content.res.ColorStateList
 import android.content.res.Resources
@@ -13,13 +14,15 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
-import mx.edu.potros.foodorder.Modelos.Cuenta
-import mx.edu.potros.foodorder.Modelos.Mesa
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.launch
+import mx.edu.potros.foodorder.Managers.Appwrite
+import mx.edu.potros.foodorder.Models.Mesa
+import mx.edu.potros.foodorder.R
 
 class MenuPrincipal : AppCompatActivity() {
 
-    //private val mesaRef = FirebaseDatabase.getInstance().getReference("Mesas")
-    var mesas = ArrayList<Mesa>()
+    var mesas = emptyList<Mesa>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,20 +48,13 @@ class MenuPrincipal : AppCompatActivity() {
     }
 
     private fun cargarMesas(containerLayout: LinearLayout) {
-        /*mesaRef.addListenerForSingleValueEvent(object : ValueEventListener {
-            override fun onDataChange(snapshot: DataSnapshot) {
-                for (s in snapshot.children) {
-                    val mesa = s.getValue(Mesa::class.java)
-                    mesa?.let { mesas.add(it) }
-                }
-
-                cargarHorizontalScrollView(containerLayout)
-            }
-
-            override fun onCancelled(error: DatabaseError) {}
-        })*/
+        lifecycleScope.launch {
+            mesas = Appwrite.database.getMesas() as ArrayList<Mesa>
+            cargarHorizontalScrollView(containerLayout)
+        }
     }
 
+    @SuppressLint("SetTextI18n")
     private fun cargarHorizontalScrollView(containerLayout: LinearLayout) {
         val layoutParams = LinearLayout.LayoutParams(dpToPx(150f).toInt(), dpToPx(135f).toInt())
         layoutParams.setMargins(dpToPx(10f).toInt(), 0, dpToPx(10f).toInt(), 0)
@@ -68,14 +64,16 @@ class MenuPrincipal : AppCompatActivity() {
             campoMesa.layoutParams = layoutParams
             campoMesa.orientation = LinearLayout.VERTICAL
             campoMesa.setBackgroundResource(R.drawable.round_view)
-            campoMesa.backgroundTintList = ColorStateList.valueOf(ContextCompat.getColor(this, R.color.amarillento))
+            campoMesa.backgroundTintList = ColorStateList.valueOf(ContextCompat.getColor(this,
+                R.color.amarillento
+            ))
             campoMesa.setPadding(dpToPx(10f).toInt(), 0, dpToPx(10f).toInt(), 0)
 
 
             val nombreMesa = TextView(this)
             nombreMesa.layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT)
             nombreMesa.gravity = Gravity.CENTER
-            nombreMesa.text = "Mesa ${mesa.nombre}"
+            nombreMesa.text = "Mesa ${mesa.numeroMesa}"
             nombreMesa.setTypeface(ResourcesCompat.getFont(this, R.font.inter_bold))
             nombreMesa.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20F)
             nombreMesa.setTextColor(ContextCompat.getColor(this, R.color.naranja))
@@ -92,8 +90,8 @@ class MenuPrincipal : AppCompatActivity() {
             campoMesa.addView(ordenLista)
 
             campoMesa.setOnClickListener {
-                val intent = Intent(this, Cuenta::class.java)
-                intent.putExtra("mesa", mesa.nombre)
+                val intent = Intent(this, CuentaActivity::class.java)
+                intent.putExtra("mesa", mesa.numeroMesa)
                 startActivity(intent)
             }
 

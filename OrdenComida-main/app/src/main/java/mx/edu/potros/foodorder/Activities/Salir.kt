@@ -1,9 +1,13 @@
-package mx.edu.potros.foodorder
+package mx.edu.potros.foodorder.Activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.launch
+import mx.edu.potros.foodorder.Managers.Appwrite
+import mx.edu.potros.foodorder.R
 
 class Salir : AppCompatActivity() {
 
@@ -30,7 +34,9 @@ class Salir : AppCompatActivity() {
     }
 
     private fun logOut() {
-        //auth.signOut()
+        lifecycleScope.launch {
+            Appwrite.account.logout()
+        }
         var intent = Intent(this, MainActivity::class.java)
         startActivity(intent)
         finish()

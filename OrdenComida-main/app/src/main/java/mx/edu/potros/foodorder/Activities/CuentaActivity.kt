@@ -1,4 +1,4 @@
-package mx.edu.potros.foodorder.Modelos
+package mx.edu.potros.foodorder.Activities
 
 import android.content.Context
 import android.content.Intent
@@ -10,17 +10,13 @@ import android.view.ViewGroup
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import mx.edu.potros.foodorder.CobraCuenta
-import mx.edu.potros.foodorder.CuentaBD
-import mx.edu.potros.foodorder.Menu
-import mx.edu.potros.foodorder.MenuOrdenar
-import mx.edu.potros.foodorder.Platillo
+import mx.edu.potros.foodorder.Models.Cuenta
+import mx.edu.potros.foodorder.Models.Mesa
+import mx.edu.potros.foodorder.Models.Platillo
 import mx.edu.potros.foodorder.R
 
-class Cuenta : AppCompatActivity() {
+class CuentaActivity : AppCompatActivity() {
 
-    //obtener platillo y mesa de la base de datos
-    /*private val platilloRef = FirebaseDatabase.getInstance().getReference("Platillos")
-    private val mesaRef = FirebaseDatabase.getInstance().getReference("Mesas")*/
     var mesa: Mesa? = null
     var platillos = ArrayList<Platillo>()
     var adapter: CuentaAdapter? = null
@@ -37,7 +33,7 @@ class Cuenta : AppCompatActivity() {
         val bundle = intent.extras
 
         if (bundle != null) {
-            numMesa = bundle.getString("mesa")
+            numMesa = bundle.getInt("mesa").toString()
         }
 
         getMesaYPlatillos(numMesa, gridView)
@@ -118,12 +114,12 @@ class Cuenta : AppCompatActivity() {
 
     class CuentaAdapter : BaseAdapter {
 
-        var cuentas: ArrayList<CuentaBD>? = null
+        var cuentas: ArrayList<Cuenta>? = null
         var platillos = ArrayList<Platillo>()
         var context: Context? = null
         var numMesa: String? = null
 
-        constructor(cuentas: ArrayList<CuentaBD>?, platillos: ArrayList<Platillo>, context: Context, numMesa: String?): super() {
+        constructor(cuentas: ArrayList<Cuenta>?, platillos: ArrayList<Platillo>, context: Context, numMesa: String?): super() {
             this.cuentas = cuentas
             this.platillos = platillos
             this.context = context
