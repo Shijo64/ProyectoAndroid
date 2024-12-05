@@ -6,22 +6,25 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/naranjaClaro"
+    android:fitsSystemWindows="true"
     tools:context=".Activities.MenuOrdenar">
 
-    <TextView
-        android:id="@+id/tv_numeroMesa"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/inter_bold"
-        android:textSize="20sp"
+    <Spinner
+        android:id="@+id/spinner_numero_mesa"
+        android:layout_width="249dp"
+        android:layout_height="40dp"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+        android:background="@drawable/custom_input"
+        android:textSize="17sp"
         android:layout_gravity="center"
-        android:gravity="center"
-        android:textColor="@color/white"
-        android:layout_marginTop="140dp"
-        android:layout_marginBottom="5dp"/>
+        android:fontFamily="@font/inter_regular"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="5dp"
+        android:entries="@array/numbers" />
 
     <EditText
-        android:id="@+id/et_nombre_cuenta"
+        android:id="@+id/et_nombre_orden"
         android:layout_width="270dp"
         android:layout_height="40dp"
         android:paddingStart="12dp"

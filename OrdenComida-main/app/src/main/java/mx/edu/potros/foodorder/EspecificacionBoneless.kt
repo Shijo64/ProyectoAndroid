@@ -1,4 +1,4 @@
-package mx.edu.potros.foodorder.Activities
+package mx.edu.potros.foodorder
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -11,9 +11,10 @@ import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.lifecycleScope
 import io.appwrite.ID
 import kotlinx.coroutines.launch
+import mx.edu.potros.foodorder.Activities.CatalogoActivity
+import mx.edu.potros.foodorder.Activities.SeguirAgregando
 import mx.edu.potros.foodorder.Managers.Appwrite
 import mx.edu.potros.foodorder.Models.PlatilloCuenta
-import mx.edu.potros.foodorder.R
 
 class EspecificacionBoneless : AppCompatActivity() {
 
@@ -28,9 +29,9 @@ class EspecificacionBoneless : AppCompatActivity() {
         var numMesa: String? = ""
         var numCuentas: String? = ""
         var cuentaID: String? = ""
-        val btnAgregar: Button = findViewById(R.id.btn_especificacion_agregar)
-        val btnRegresar: Button = findViewById(R.id.btn_especificacion_regresar)
-        val tvDescripcion: TextView = findViewById(R.id.tv_descripcion)
+        val btnAgregar: Button = findViewById(R.id.btn_agregar)
+        val btnRegresar: Button = findViewById(R.id.btn_back)
+        val tvDescripcion: TextView = findViewById(R.id.platillo_descripcion)
 
         val bundle = intent.extras
 
@@ -64,7 +65,7 @@ class EspecificacionBoneless : AppCompatActivity() {
         }
 
         btnRegresar.setOnClickListener {
-            var intent = Intent(this, Catalogo::class.java)
+            var intent = Intent(this, CatalogoActivity::class.java)
             intent.putExtra("tipo", "entradas")
             intent.putExtra("mesa", numMesa)
             intent.putExtra("cuenta", nombreCuenta)
@@ -97,14 +98,7 @@ class EspecificacionBoneless : AppCompatActivity() {
             return
         }
 
-        val platillo = PlatilloCuenta(
-            ID.unique().toString(),
-            cuentaID.toString(),
-            1,
-            salsaSeleccionada,
-            "Boneless")
-
-        val platilloID = Appwrite.database.agregarPlatillo(platillo)
+        //val platilloID = Appwrite.database.agregarPlatillo(platillo)
 
         var intent = Intent(this@EspecificacionBoneless, SeguirAgregando::class.java)
         intent.putExtra("mesa", numMesa)

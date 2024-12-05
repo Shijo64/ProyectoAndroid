@@ -8,7 +8,7 @@ import android.widget.CheckBox
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
-import mx.edu.potros.foodorder.Activities.Catalogo
+import mx.edu.potros.foodorder.Activities.CatalogoActivity
 
 class EspecificacionTeriyaki : AppCompatActivity() {
 
@@ -21,8 +21,8 @@ class EspecificacionTeriyaki : AppCompatActivity() {
         var numMesa: String? = ""
         var nombreCuenta: String? = ""
         var numCuentas: String? = ""
-        val btnAgregar: Button = findViewById(R.id.btn_especificacion_agregar)
-        val btnRegresar: Button = findViewById(R.id.btn_especificacion_regresar)
+        val btnAgregar: Button = findViewById(R.id.btn_agregar)
+        val btnRegresar: Button = findViewById(R.id.btn_back)
         var tvDescripcion: TextView = findViewById(R.id.tv_especificacionDescripcion)
 
         val bundle = intent.extras
@@ -54,7 +54,7 @@ class EspecificacionTeriyaki : AppCompatActivity() {
         }
 
         btnRegresar.setOnClickListener {
-            var intent = Intent(this, Catalogo::class.java)
+            var intent = Intent(this, CatalogoActivity::class.java)
             intent.putExtra("tipo", "platillos")
             intent.putExtra("mesa", numMesa)
             intent.putExtra("cuenta", nombreCuenta)

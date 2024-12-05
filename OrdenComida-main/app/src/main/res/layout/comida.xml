@@ -29,7 +29,7 @@
             android:textSize="15sp" />
 
         <TextView
-            android:id="@+id/tv_descripcion"
+            android:id="@+id/platillo_descripcion"
             android:layout_width="375dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="23dp"
@@ -40,7 +40,7 @@
 
 
         <TextView
-            android:id="@+id/tv_precio"
+            android:id="@+id/platillo_precio"
             android:layout_width="155dp"
             android:layout_height="wrap_content"
             android:fontFamily="@font/inter_bold"

@@ -157,10 +157,10 @@ class CuentaActivity : AppCompatActivity() {
                 var i = 0
 
                 while (i < platillo.cantidad!!) {
-                    textoPlatillo += "${platillo.platillo}\n"
+                    textoPlatillo += "${platillo.nombrePlatillo}\n"
 
                     for (item in platillos) {
-                        if (item.nombre == platillo.platillo) {
+                        if (item.nombre == platillo.nombrePlatillo) {
                             textoPrecio += "$${item.precio}\n"
                         }
                     }

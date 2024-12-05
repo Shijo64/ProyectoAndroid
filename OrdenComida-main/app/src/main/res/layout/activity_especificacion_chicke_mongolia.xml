@@ -124,7 +124,7 @@
         android:layout_marginTop="5dp"/>
 
     <Button
-        android:id="@+id/btn_especificacion_agregar"
+        android:id="@+id/btn_agregar"
         android:layout_width="128dp"
         android:layout_height="40dp"
         android:layout_gravity="center"
@@ -137,7 +137,7 @@
         android:textColor="@color/white"/>
 
     <Button
-        android:id="@+id/btn_especificacion_regresar"
+        android:id="@+id/btn_back"
         android:layout_width="128dp"
         android:layout_height="40dp"
         android:layout_gravity="center"

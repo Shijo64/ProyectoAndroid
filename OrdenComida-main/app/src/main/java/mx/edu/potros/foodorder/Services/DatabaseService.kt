@@ -1,5 +1,6 @@
 package mx.edu.potros.foodorder.Services
 
+import androidx.lifecycle.LiveData
 import io.appwrite.Client
 import io.appwrite.ID
 import io.appwrite.exceptions.AppwriteException
@@ -11,6 +12,7 @@ import mx.edu.potros.foodorder.Models.Orden
 import mx.edu.potros.foodorder.Models.PlatilloCuenta
 import java.util.UUID
 
+@Suppress("UNCHECKED_CAST")
 class DatabaseService(client: Client) {
     private val database = Databases(client)
     private val databaseID = "674d704100189047fe83"
@@ -34,11 +36,11 @@ class DatabaseService(client: Client) {
         }
     }
 
-    suspend fun getMesas(): List<Mesa?> {
+    suspend fun getMesas(): List<Mesa> {
         try {
             val response = database.listDocuments(databaseID, mesasID)
             val mesas = response.documents.map { it.data.tryJsonCast<Mesa>() }
-            return mesas
+            return mesas as List<Mesa>
         }catch (exception: AppwriteException){
             print(exception)
             return emptyList()
@@ -78,7 +80,7 @@ class DatabaseService(client: Client) {
                 databaseId = databaseID,
                 collectionId = platillosID,
                 documentId = ID.unique(),
-                data = mapOf("nombre" to platillo.platillo,"cantidad" to platillo.cantidad,"extras" to platillo.extras,"idCuenta" to platillo.idCuenta,)
+                data = mapOf("nombre" to platillo.nombrePlatillo,"cantidad" to platillo.cantidad,"extras" to platillo.extras,"idCuenta" to platillo.id,)
             )
             return document.id
         }catch (exception: AppwriteException){

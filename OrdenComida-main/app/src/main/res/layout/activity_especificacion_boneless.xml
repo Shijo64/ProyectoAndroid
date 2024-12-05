@@ -7,7 +7,7 @@
     android:background="@color/naranjaClaro"
     android:orientation="vertical"
     android:padding="3pt"
-    tools:context=".Activities.EspecificacionBoneless">
+    tools:context=".EspecificacionBoneless">
 
 
     <ImageView
@@ -38,7 +38,7 @@
 
 
         <TextView
-            android:id="@+id/tv_precio"
+            android:id="@+id/platillo_precio"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -52,7 +52,7 @@
     </GridLayout>
 
     <TextView
-        android:id="@+id/tv_descripcion"
+        android:id="@+id/platillo_descripcion"
         android:layout_width="325dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -100,7 +100,7 @@
         android:layout_marginTop="5dp"/>
 
     <Button
-        android:id="@+id/btn_especificacion_agregar"
+        android:id="@+id/btn_agregar"
         android:layout_width="128dp"
         android:layout_height="40dp"
         android:layout_gravity="center"
@@ -113,7 +113,7 @@
         android:textColor="@color/white"/>
 
     <Button
-        android:id="@+id/btn_especificacion_regresar"
+        android:id="@+id/btn_back"
         android:layout_width="128dp"
         android:layout_height="40dp"
         android:layout_gravity="center"

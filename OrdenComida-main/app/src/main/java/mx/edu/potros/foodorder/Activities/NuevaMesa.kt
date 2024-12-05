@@ -14,8 +14,6 @@ import mx.edu.potros.foodorder.R
 
 class NuevaMesa : AppCompatActivity() {
 
-    //private val mesaRef = FirebaseDatabase.getInstance().getReference("Mesas")
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_nueva_mesa)
@@ -24,7 +22,7 @@ class NuevaMesa : AppCompatActivity() {
         val ivUnaCuenta: ImageView = findViewById(R.id.iv_cuenta)
         val ivVariasCuentas: ImageView = findViewById(R.id.iv_varias_cuentas)
 
-        ivUnaCuenta.setOnClickListener {
+        /*ivUnaCuenta.setOnClickListener {
             lifecycleScope.launch {
                 creaMesa("una")
             }
@@ -34,10 +32,10 @@ class NuevaMesa : AppCompatActivity() {
             lifecycleScope.launch {
                 creaMesa("varias")
             }
-        }
+        }*/
 
         btnRegresar.setOnClickListener {
-            var intent = Intent(this, MenuPrincipal::class.java)
+            var intent = Intent(this, HomeActivity::class.java)
             startActivity(intent)
             finish()
         }
@@ -58,30 +56,5 @@ class NuevaMesa : AppCompatActivity() {
         intent.putExtra("numCuentas", numCuentas)
         startActivity(intent)
         finish()
-        /*mesaRef.orderByChild("nombre").equalTo(numeroMesa).addListenerForSingleValueEvent(object: ValueEventListener {
-            override fun onDataChange(snapshot: DataSnapshot) {
-                for (s in snapshot.children) {
-                    val mesaExistente = s.getValue(Mesa::class.java)
-
-                    if (mesaExistente != null) {
-                        Toast.makeText(this@NuevaMesa, "Una mesa con ese número ya existe", Toast.LENGTH_SHORT).show()
-                        return
-                    }
-                }
-
-                val mesa = Mesa(numeroMesa)
-
-                mesaRef.push().setValue(mesa)
-                Toast.makeText(this@NuevaMesa, "Mesa agregada exitosamente", Toast.LENGTH_SHORT).show()
-
-                var intent = Intent(this@NuevaMesa, MenuOrdenar::class.java)
-                intent.putExtra("mesa", numeroMesa)
-                intent.putExtra("numCuentas", numCuentas)
-                startActivity(intent)
-                finish()
-            }
-
-            override fun onCancelled(error: DatabaseError) {}
-        })*/
     }
 }

@@ -7,11 +7,12 @@
     android:background="@color/naranjaClaro"
     android:orientation="vertical"
     android:padding="3pt"
-    tools:context=".EspecificacionGenerica">
+    android:fitsSystemWindows="true"
+    tools:context=".Activities.SeleccionPlatilloActivity">
 
 
     <ImageView
-        android:id="@+id/iv_especificar"
+        android:id="@+id/platillo_imagen"
         android:layout_width="129dp"
         android:layout_height="102dp"
         android:layout_gravity="center"
@@ -26,7 +27,7 @@
 
 
         <TextView
-            android:id="@+id/tv_nombreComida"
+            android:id="@+id/platillo_nombre"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -38,7 +39,7 @@
 
 
         <TextView
-            android:id="@+id/tv_precio"
+            android:id="@+id/platillo_precio"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -52,7 +53,7 @@
     </GridLayout>
 
     <TextView
-        android:id="@+id/tv_descripcion"
+        android:id="@+id/platillo_descripcion"
         android:layout_width="325dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -70,7 +71,7 @@
         android:paddingHorizontal="40dp">
 
         <Button
-            android:id="@+id/btn_especificacion_menos"
+            android:id="@+id/btn_menos"
             android:layout_width="40dp"
 
             android:layout_height="40dp"
@@ -83,7 +84,7 @@
             android:layout_marginLeft="60dp"/>
 
         <TextView
-            android:id="@+id/tv_cantidad"
+            android:id="@+id/platillo_cantidad"
             android:layout_width="128dp"
             android:layout_height="40dp"
             android:text="1"
@@ -93,7 +94,7 @@
             android:background="@drawable/round_button"/>
 
         <Button
-            android:id="@+id/btn_especificacion_mas"
+            android:id="@+id/btn_mas"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_gravity="center"
@@ -106,7 +107,7 @@
     </GridLayout>
 
     <Button
-        android:id="@+id/btn_especificacion_agregar"
+        android:id="@+id/btn_agregar"
         android:layout_width="128dp"
         android:layout_height="40dp"
         android:layout_gravity="center"
@@ -119,7 +120,7 @@
         android:textColor="@color/white"/>
 
     <Button
-        android:id="@+id/btn_especificacion_regresar"
+        android:id="@+id/btn_back"
         android:layout_width="128dp"
         android:layout_height="40dp"
         android:layout_gravity="center"

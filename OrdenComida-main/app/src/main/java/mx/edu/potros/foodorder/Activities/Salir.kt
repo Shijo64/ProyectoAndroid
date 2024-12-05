@@ -27,7 +27,7 @@ class Salir : AppCompatActivity() {
         }
 
         buttonCancelar.setOnClickListener{
-            var intent = Intent(this, MenuPrincipal::class.java)
+            var intent = Intent(this, HomeActivity::class.java)
             startActivity(intent)
             finish()
         }
@@ -37,7 +37,7 @@ class Salir : AppCompatActivity() {
         lifecycleScope.launch {
             Appwrite.account.logout()
         }
-        var intent = Intent(this, MainActivity::class.java)
+        var intent = Intent(this, LoginActivity::class.java)
         startActivity(intent)
         finish()
     }
