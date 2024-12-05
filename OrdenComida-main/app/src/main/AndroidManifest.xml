@@ -24,9 +24,11 @@
         </activity>
         <activity android:name=".Activities.Bienvenido" android:exported="false" />
         <activity android:name=".Activities.HomeActivity" android:exported="false" />
-        <activity android:name=".Activities.Salir" android:exported="false" />
+        <activity android:name=".Activities.LogoutActivity" android:exported="false" />
         <activity android:name=".Activities.MenuOrdenar" android:exported="false" />
         <activity android:name=".Activities.Menu" android:exported="false" />
+        <activity android:name=".Activities.CatalogoActivity" android:exported="false" />
+        <activity android:name=".Activities.RegistroActivity" android:exported="false" />
     </application>
 
 </manifest>

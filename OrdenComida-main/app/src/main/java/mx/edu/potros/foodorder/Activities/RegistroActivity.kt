@@ -12,7 +12,7 @@ import kotlinx.coroutines.launch
 import mx.edu.potros.foodorder.Managers.Appwrite
 import mx.edu.potros.foodorder.R
 
-class Registro : AppCompatActivity() {
+class RegistroActivity : AppCompatActivity() {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -51,10 +51,10 @@ class Registro : AppCompatActivity() {
         try {
             var result = Appwrite.account.register(correo, password)
             if (result != null) {
-                Toast.makeText(this@Registro, "Usuario registrado exitosamente", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@RegistroActivity, "Usuario registrado exitosamente", Toast.LENGTH_SHORT).show()
                 this.reload()
             } else {
-                Toast.makeText(this@Registro, "No se pudo registrar el usuario", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@RegistroActivity, "No se pudo registrar el usuario", Toast.LENGTH_SHORT).show()
             }
         } catch(e : Exception) {
             e.printStackTrace()

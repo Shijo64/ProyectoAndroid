@@ -42,6 +42,12 @@ class AccountService(client: Client) {
     }
 
     suspend fun logout() {
-        account.deleteSession("current")
+        try {
+            coroutineScope {
+                account.deleteSession("current")
+            }
+        } catch (e: AppwriteException) {
+            print(e.message)
+        }
     }
 }

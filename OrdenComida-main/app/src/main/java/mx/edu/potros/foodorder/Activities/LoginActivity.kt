@@ -7,8 +7,6 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.activity.viewModels
-import androidx.lifecycle.lifecycleScope
-import kotlinx.coroutines.launch
 import mx.edu.potros.foodorder.Managers.Appwrite
 import mx.edu.potros.foodorder.R
 import mx.edu.potros.foodorder.ViewModels.LoginViewModel
@@ -39,7 +37,7 @@ class LoginActivity : AppCompatActivity() {
         }
 
         btnRegistro.setOnClickListener {
-            var intent = Intent(this, Registro::class.java)
+            var intent = Intent(this, RegistroActivity::class.java)
             startActivity(intent)
         }
     }

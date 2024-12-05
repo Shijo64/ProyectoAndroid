@@ -70,12 +70,6 @@ class CatalogoActivity : AppCompatActivity() {
         }
 
         backButton.setOnClickListener {
-            var intent = Intent(this, Menu::class.java)
-            /*intent.putExtra("mesa", numMesa)
-            intent.putExtra("cuenta", nombreCuenta)
-            intent.putExtra("numCuentas", numCuentas)
-            intent.putExtra("cuentaID", cuentaID)
-            startActivity(intent)*/
             finish()
         }
     }

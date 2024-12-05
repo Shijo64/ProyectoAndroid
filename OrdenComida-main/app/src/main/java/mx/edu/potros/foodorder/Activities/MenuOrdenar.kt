@@ -27,12 +27,9 @@ class MenuOrdenar : AppCompatActivity() {
             intent.putExtra("numeroMesa", numeroMesa)
             intent.putExtra("nombreOrden", nombreOrden)
             startActivity(intent)
-            finish()
         }
 
         btnRegresar.setOnClickListener {
-            val intent = Intent(this, NuevaMesa::class.java)
-            startActivity(intent)
             finish()
         }
     }

@@ -3,6 +3,7 @@ package mx.edu.potros.foodorder.Activities
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
 import android.widget.ImageView
 import mx.edu.potros.foodorder.Enums.PlatilloEnum
 import mx.edu.potros.foodorder.R
@@ -21,6 +22,7 @@ class Menu : AppCompatActivity() {
         val ivExtras: ImageView = findViewById(R.id.iv_extras)
         val ivPostres: ImageView = findViewById(R.id.iv_postres)
         val ivBebidas: ImageView = findViewById(R.id.iv_bebidas)
+        var btnBack: Button = findViewById(R.id.btn_back)
 
         val bundle = intent.extras
 
@@ -35,7 +37,6 @@ class Menu : AppCompatActivity() {
             intent.putExtra("nombreOrden", nombreOrden)
             intent.putExtra("numeroMesa", numeroMesa)
             startActivity(intent)
-            finish()
         }
 
         ivRollos.setOnClickListener {
@@ -44,7 +45,6 @@ class Menu : AppCompatActivity() {
             intent.putExtra("nombreOrden", nombreOrden)
             intent.putExtra("numeroMesa", numeroMesa)
             startActivity(intent)
-            finish()
         }
 
         ivPlatillos.setOnClickListener {
@@ -53,7 +53,6 @@ class Menu : AppCompatActivity() {
             intent.putExtra("nombreOrden", nombreOrden)
             intent.putExtra("numeroMesa", numeroMesa)
             startActivity(intent)
-            finish()
         }
 
         ivExtras.setOnClickListener {
@@ -62,7 +61,6 @@ class Menu : AppCompatActivity() {
             intent.putExtra("nombreOrden", nombreOrden)
             intent.putExtra("numeroMesa", numeroMesa)
             startActivity(intent)
-            finish()
         }
 
         ivPostres.setOnClickListener {
@@ -71,7 +69,6 @@ class Menu : AppCompatActivity() {
             intent.putExtra("nombreOrden", nombreOrden)
             intent.putExtra("numeroMesa", numeroMesa)
             startActivity(intent)
-            finish()
         }
 
         ivBebidas.setOnClickListener {
@@ -80,6 +77,9 @@ class Menu : AppCompatActivity() {
             intent.putExtra("nombreOrden", nombreOrden)
             intent.putExtra("numeroMesa", numeroMesa)
             startActivity(intent)
+        }
+
+        btnBack.setOnClickListener {
             finish()
         }
     }

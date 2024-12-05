@@ -3,16 +3,12 @@ package mx.edu.potros.foodorder.Activities
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.ArrayAdapter
 import android.widget.Button
-import android.widget.LinearLayout
 import android.widget.ListView
 import androidx.activity.viewModels
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import mx.edu.potros.foodorder.Adapters.MesasAdapter
-import mx.edu.potros.foodorder.Models.Mesa
 import mx.edu.potros.foodorder.R
 import mx.edu.potros.foodorder.ViewModels.HomeViewModel
 import mx.edu.potros.foodorder.databinding.ActivityHomeBinding
@@ -39,7 +35,7 @@ class HomeActivity : AppCompatActivity() {
         })
 
         btnCerrarSesion.setOnClickListener{
-            var intent = Intent(this, Salir::class.java)
+            var intent = Intent(this, LogoutActivity::class.java)
             startActivity(intent)
         }
 
