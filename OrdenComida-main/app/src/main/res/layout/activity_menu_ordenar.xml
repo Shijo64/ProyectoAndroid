@@ -19,7 +19,7 @@
         android:textSize="17sp"
         android:layout_gravity="center"
         android:fontFamily="@font/inter_regular"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="100dp"
         android:layout_marginBottom="5dp"
         android:entries="@array/numbers" />
 
