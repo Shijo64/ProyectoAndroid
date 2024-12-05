@@ -12,7 +12,6 @@ import mx.edu.potros.foodorder.Models.Orden
 import mx.edu.potros.foodorder.Models.PlatilloCuenta
 import java.util.UUID
 
-@Suppress("UNCHECKED_CAST")
 class DatabaseService(client: Client) {
     private val database = Databases(client)
     private val databaseID = "674d704100189047fe83"

@@ -26,7 +26,7 @@
         <activity android:name=".Activities.HomeActivity" android:exported="false" />
         <activity android:name=".Activities.Salir" android:exported="false" />
         <activity android:name=".Activities.MenuOrdenar" android:exported="false" />
-        <activity android:name=".Activities.NuevaMesa" android:exported="false" />
+        <activity android:name=".Activities.Menu" android:exported="false" />
     </application>
 
 </manifest>

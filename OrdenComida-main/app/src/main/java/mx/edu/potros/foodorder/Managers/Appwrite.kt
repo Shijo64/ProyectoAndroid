@@ -2,7 +2,6 @@ package mx.edu.potros.foodorder.Managers
 
 import android.content.Context
 import io.appwrite.Client
-import io.appwrite.services.Databases
 import mx.edu.potros.foodorder.Services.AccountService
 import mx.edu.potros.foodorder.Services.DatabaseService
 

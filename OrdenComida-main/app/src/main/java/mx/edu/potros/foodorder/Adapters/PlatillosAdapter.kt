@@ -9,12 +9,8 @@ import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.ImageView
 import android.widget.TextView
-import mx.edu.potros.foodorder.EspecificacionBoneless
-import mx.edu.potros.foodorder.Enums.PlatilloEnum
-import mx.edu.potros.foodorder.EspecificacionChickeMongolia
 import mx.edu.potros.foodorder.Activities.SeleccionPlatilloActivity
-import mx.edu.potros.foodorder.EspecificacionRollo
-import mx.edu.potros.foodorder.EspecificacionTeriyaki
+import mx.edu.potros.foodorder.Enums.PlatilloEnum
 import mx.edu.potros.foodorder.Models.Platillo
 import mx.edu.potros.foodorder.R
 

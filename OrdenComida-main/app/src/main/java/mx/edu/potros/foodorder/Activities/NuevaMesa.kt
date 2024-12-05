@@ -19,8 +19,6 @@ class NuevaMesa : AppCompatActivity() {
         setContentView(R.layout.activity_nueva_mesa)
 
         val btnRegresar: Button = findViewById(R.id.btn_regresar)
-        val ivUnaCuenta: ImageView = findViewById(R.id.iv_cuenta)
-        val ivVariasCuentas: ImageView = findViewById(R.id.iv_varias_cuentas)
 
         /*ivUnaCuenta.setOnClickListener {
             lifecycleScope.launch {
@@ -42,19 +40,19 @@ class NuevaMesa : AppCompatActivity() {
     }
 
     private suspend fun creaMesa(numCuentas: String) {
-        var numMesa: Spinner = findViewById(R.id.spinner_numero_mesa)
+        /*var numMesa: Spinner = findViewById(R.id.spinner_numero_mesa)
 
 
         var numeroMesa: String = numMesa.selectedItem.toString()
 
-        val mesaID = Appwrite.database.addMesa(numeroMesa.toInt())
-        Toast.makeText(this@NuevaMesa, "Mesa agregada exitosamente", Toast.LENGTH_SHORT).show()
+        //val mesaID = Appwrite.database.addMesa(numeroMesa.toInt())
+        //Toast.makeText(this@NuevaMesa, "Mesa agregada exitosamente", Toast.LENGTH_SHORT).show()
 
         var intent = Intent(this@NuevaMesa, MenuOrdenar::class.java)
         intent.putExtra("mesa", numeroMesa)
         intent.putExtra("mesaID", mesaID)
         intent.putExtra("numCuentas", numCuentas)
         startActivity(intent)
-        finish()
+        finish()*/
     }
 }
