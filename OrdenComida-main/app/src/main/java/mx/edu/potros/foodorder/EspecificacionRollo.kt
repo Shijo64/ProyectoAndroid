@@ -9,7 +9,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
-import mx.edu.potros.foodorder.Activities.Catalogo
+import mx.edu.potros.foodorder.Activities.CatalogoActivity
 
 class EspecificacionRollo : AppCompatActivity() {
 
@@ -22,8 +22,8 @@ class EspecificacionRollo : AppCompatActivity() {
         var nombreCuenta: String? = ""
         var numMesa: String? = ""
         var numCuentas: String? = ""
-        val btnAgregar: Button = findViewById(R.id.btn_especificacion_agregar)
-        val btnRegresar: Button = findViewById(R.id.btn_especificacion_regresar)
+        val btnAgregar: Button = findViewById(R.id.btn_agregar)
+        val btnRegresar: Button = findViewById(R.id.btn_back)
         val tvDescripcion: TextView = findViewById(R.id.tv_especificacionDescripcion)
         var ivRollo: ImageView = findViewById(R.id.iv_rollo)
         var tvNombre: TextView = findViewById(R.id.tv_nombreEspecificacionRollo)
@@ -61,7 +61,7 @@ class EspecificacionRollo : AppCompatActivity() {
         }
 
         btnRegresar.setOnClickListener {
-            var intent = Intent(this, Catalogo::class.java)
+            var intent = Intent(this, CatalogoActivity::class.java)
             intent.putExtra("tipo", "rollos")
             intent.putExtra("mesa", numMesa)
             intent.putExtra("cuenta", nombreCuenta)

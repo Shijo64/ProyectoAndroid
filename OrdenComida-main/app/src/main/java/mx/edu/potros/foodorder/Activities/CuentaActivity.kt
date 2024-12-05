@@ -157,10 +157,10 @@ class CuentaActivity : AppCompatActivity() {
                 var i = 0
 
                 while (i < platillo.cantidad!!) {
-                    textoPlatillo += "${platillo.platillo}\n"
+                    textoPlatillo += "${platillo.nombrePlatillo}\n"
 
                     for (item in platillos) {
-                        if (item.nombre == platillo.platillo) {
+                        if (item.nombre == platillo.nombrePlatillo) {
                             textoPrecio += "$${item.precio}\n"
                         }
                     }
@@ -196,7 +196,7 @@ class CuentaActivity : AppCompatActivity() {
             }
 
             btnOrdenar.setOnClickListener {
-                val intent = Intent(context, Menu::class.java)
+                val intent = Intent(context, MenuActivity::class.java)
                 intent.putExtra("mesa", numMesa)
                 intent.putExtra("cuenta", cuenta.nombre)
                 context!!.startActivity(intent)

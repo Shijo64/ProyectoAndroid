@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/naranjaClaro"
     android:orientation="vertical"
-    tools:context=".Activities.MainActivity">
+    tools:context=".Activities.LoginActivity">
 
     <ImageView
         android:layout_width="match_parent"
@@ -44,17 +44,6 @@
         android:paddingStart="12dp"
         android:paddingEnd="12dp"
         android:textSize="14sp" />
-
-    <TextView
-        android:id="@+id/tv_olvidasteContra"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:textAlignment="center"
-        android:backgroundTint="@color/naranjaClaro"
-        android:fontFamily="@font/inter_semibold"
-        android:text="@string/contraOlvidada"
-        android:textColor="@color/white" />
 
     <Button
         android:id="@+id/btn_login"

@@ -1,4 +1,4 @@
-package mx.edu.potros.foodorder
+package mx.edu.potros.foodorder.Activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -7,81 +7,88 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
-import mx.edu.potros.foodorder.Activities.Catalogo
+import mx.edu.potros.foodorder.Models.PlatilloOrden
+import mx.edu.potros.foodorder.R
+import java.lang.Exception
 
-class EspecificacionGenerica : AppCompatActivity() {
-
-    //private val mesaRef = FirebaseDatabase.getInstance().getReference("Mesas")
+class SeleccionPlatilloActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_especificacion_generica)
+        setContentView(R.layout.activity_seleccion_platillo)
 
-        var numMesa: String? = ""
-        var nombreCuenta: String? = ""
-        var numCuentas: String? = ""
+        val btn_back = findViewById<Button>(R.id.btn_back)
+        val btn_agregar = findViewById<Button>(R.id.btn_agregar)
+        val btn_mas = findViewById<Button>(R.id.btn_mas)
+        val btn_menos = findViewById<Button>(R.id.btn_menos)
+
+        val platillo_imagen = findViewById<ImageView>(R.id.platillo_imagen)
+        val platillo_nombre = findViewById<TextView>(R.id.platillo_nombre)
+        val platillo_precio = findViewById<TextView>(R.id.platillo_precio)
+        val platillo_descripcion = findViewById<TextView>(R.id.platillo_descripcion)
+        val platillo_cantidad = findViewById<TextView>(R.id.platillo_cantidad)
+
+        var numeroMesa: String? = ""
+        var nombreOrden: String? = ""
         var tipoPlatillo: String? = ""
-        val btnMas: Button = findViewById(R.id.btn_especificacion_mas)
-        val btnMenos: Button = findViewById(R.id.btn_especificacion_menos)
-        val btnAgregar: Button = findViewById(R.id.btn_especificacion_agregar)
-        val btnRegresar: Button = findViewById(R.id.btn_especificacion_regresar)
-        var tvCantidad: TextView = findViewById(R.id.tv_cantidad)
-        var ivComida: ImageView = findViewById(R.id.iv_especificar)
-        var tvNombre: TextView = findViewById(R.id.tv_nombreComida)
-        var tvPrecio: TextView = findViewById(R.id.tv_precio)
-        var tvDescripcion: TextView = findViewById(R.id.tv_descripcion)
 
         val bundle = intent.extras
 
         if (bundle != null) {
-            ivComida.setImageResource(bundle.getInt("imagen"))
-            tvNombre.setText(bundle.getString("nombre"))
-            tvPrecio.setText("$${bundle.getDouble("precio")}")
-            tvDescripcion.setText(bundle.getString("descripcion"))
-            numMesa = bundle.getString("mesa")
-            nombreCuenta = bundle.getString("cuenta")
+            platillo_imagen.setImageResource(bundle.getInt("imagen"))
+            platillo_nombre.setText(bundle.getString("nombre"))
+            platillo_precio.setText("$${bundle.getDouble("precio")}")
+            platillo_descripcion.setText(bundle.getString("descripcion"))
             tipoPlatillo = bundle.getString("tipo")
-            numCuentas = bundle.getString("numCuentas")
+            numeroMesa = bundle.getString("numeroMesa")
+            nombreOrden = bundle.getString("nombreOrden")
         }
 
-        btnMas.setOnClickListener {
-            var txtCantidad: String = tvCantidad.text.toString()
+        btn_mas.setOnClickListener {
+            var txtCantidad: String = platillo_cantidad.text.toString()
 
             try {
                 var cantidad = Integer.parseInt(txtCantidad)
                 cantidad++
-                tvCantidad.setText(cantidad.toString())
-            } catch (e: java.lang.Exception) {
+                platillo_cantidad.setText(cantidad.toString())
+            } catch (e: Exception) {
                 System.out.println("Could not parse " + e)
             }
         }
 
-        btnMenos.setOnClickListener {
-            var txtCantidad: String = tvCantidad.text.toString()
+        btn_menos.setOnClickListener {
+            var txtCantidad: String = platillo_cantidad.text.toString()
 
             try {
                 var cantidad = Integer.parseInt(txtCantidad)
                 if (cantidad != 1) {
                     cantidad--
-                    tvCantidad.setText(cantidad.toString())
+                    platillo_cantidad.setText(cantidad.toString())
                 }
-            } catch (e: java.lang.Exception) {
+            } catch (e: Exception) {
                 System.out.println("Could not parse " + e)
             }
         }
 
-        btnAgregar.setOnClickListener {
+        btn_agregar.setOnClickListener {
             val builder = AlertDialog.Builder(this)
             builder.setTitle("Confirmación")
             builder.setMessage("¿Estás seguro de agregar ese platillo?")
 
             builder.setPositiveButton("Si") { dialog, which ->
-                var txtCantidad = tvCantidad.text.toString()
 
                 try {
-                    var cantidad = Integer.parseInt(txtCantidad)
-                    agregarPlatillo(cantidad, tvNombre.text.toString(), nombreCuenta, numMesa, numCuentas)
-                } catch (e: java.lang.Exception) {
+                    val platillo = PlatilloOrden(
+                        0,
+                        nombreOrden.toString(),
+                        numeroMesa.toString().toInt(),
+                        platillo_cantidad.text.toString().toInt(),
+                        "",
+                        platillo_nombre.text.toString(),
+                        platillo_precio.text.toString().toDouble()
+                    )
+                    agregarPlatillo(platillo)
+                } catch (e: Exception) {
                     System.err.println("Could not parse " + e)
                 }
             }
@@ -96,18 +103,21 @@ class EspecificacionGenerica : AppCompatActivity() {
             dialog.show()
         }
 
-        btnRegresar.setOnClickListener {
-            var intent = Intent(this, Catalogo::class.java)
+        btn_back.setOnClickListener {
+            var intent = Intent(this, CatalogoActivity::class.java)
             intent.putExtra("tipo", tipoPlatillo)
-            intent.putExtra("mesa", numMesa)
-            intent.putExtra("cuenta", nombreCuenta)
-            intent.putExtra("numCuentas", numCuentas)
+            intent.putExtra("mesa", numeroMesa)
+            intent.putExtra("nombreOrden", nombreOrden)
             startActivity(intent)
             finish()
         }
     }
 
-    private fun agregarPlatillo(cantidad: Int, nombrePlatillo: String?, nombreCuenta: String?, numMesa: String?, numCuentas: String?) {
+    private fun agregarPlatillo(platillo: PlatilloOrden) {
+
+        //guardar platillo en base de datos
+
+
         //val platillo = PlatilloCuenta(cantidad, null, nombrePlatillo)
 
         /*mesaRef.orderByChild("nombre").equalTo(numMesa).addListenerForSingleValueEvent(object: ValueEventListener {

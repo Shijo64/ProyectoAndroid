@@ -4,5 +4,5 @@ data class Orden(
     val cuentaID: String,
     val numeroMesa: Int,
     val nombreCuenta: String,
-    val platillos: List<PlatilloCuenta>
+    val platillos: List<PlatilloOrden>
 )

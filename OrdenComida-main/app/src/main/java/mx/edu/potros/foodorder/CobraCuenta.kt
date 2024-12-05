@@ -4,7 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
-import mx.edu.potros.foodorder.Activities.MenuPrincipal
+import mx.edu.potros.foodorder.Activities.HomeActivity
 
 class CobraCuenta : AppCompatActivity() {
 
@@ -31,7 +31,7 @@ class CobraCuenta : AppCompatActivity() {
         }
 
         btnCancelar.setOnClickListener {
-            var intent = Intent(this, MenuPrincipal::class.java)
+            var intent = Intent(this, HomeActivity::class.java)
             startActivity(intent)
             finish()
         }

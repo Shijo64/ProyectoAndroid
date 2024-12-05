@@ -8,8 +8,7 @@ import io.appwrite.services.Databases
 import mx.edu.potros.foodorder.Models.Cuenta
 import mx.edu.potros.foodorder.Models.Mesa
 import mx.edu.potros.foodorder.Models.Orden
-import mx.edu.potros.foodorder.Models.PlatilloCuenta
-import java.util.UUID
+import mx.edu.potros.foodorder.Models.PlatilloOrden
 
 class DatabaseService(client: Client) {
     private val database = Databases(client)
@@ -34,11 +33,11 @@ class DatabaseService(client: Client) {
         }
     }
 
-    suspend fun getMesas(): List<Mesa?> {
+    suspend fun getMesas(): List<Mesa> {
         try {
             val response = database.listDocuments(databaseID, mesasID)
             val mesas = response.documents.map { it.data.tryJsonCast<Mesa>() }
-            return mesas
+            return mesas as List<Mesa>
         }catch (exception: AppwriteException){
             print(exception)
             return emptyList()
@@ -72,13 +71,13 @@ class DatabaseService(client: Client) {
         }
     }
 
-    suspend fun agregarPlatillo(platillo: PlatilloCuenta): String {
+    suspend fun agregarPlatillo(platillo: PlatilloOrden): String {
         try {
             val document = database.createDocument(
                 databaseId = databaseID,
                 collectionId = platillosID,
                 documentId = ID.unique(),
-                data = mapOf("nombre" to platillo.platillo,"cantidad" to platillo.cantidad,"extras" to platillo.extras,"idCuenta" to platillo.idCuenta,)
+                data = mapOf("nombre" to platillo.nombrePlatillo,"cantidad" to platillo.cantidad,"extras" to platillo.extras,"idCuenta" to platillo.id,)
             )
             return document.id
         }catch (exception: AppwriteException){
