@@ -10,7 +10,7 @@ import androidx.sqlite.db.SupportSQLiteOpenHelper
 import mx.edu.potros.foodorder.Interfaces.OrdenDao
 import mx.edu.potros.foodorder.Interfaces.PlatillosDao
 
-@Database(entities = [PlatilloOrden::class, Orden::class], version = 1)
+@Database(entities = [PlatilloOrden::class, Orden::class], version = 2)
 abstract class AppDatabase: RoomDatabase() {
     abstract fun platillosDao(): PlatillosDao
     abstract fun ordenDao(): OrdenDao

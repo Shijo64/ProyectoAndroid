@@ -1,3 +1,8 @@
 package mx.edu.potros.foodorder.Models
 
-data class Platillo(var image: Int = 0, var nombre: String? = null, var descripcion: String? = null, var precio: Double = 0.0)
+data class Platillo(
+    var image: Int,
+    var nombre: String,
+    var descripcion: String,
+    var precio: String
+)

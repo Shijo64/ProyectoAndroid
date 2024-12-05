@@ -1,12 +1,12 @@
 {
   "formatVersion": 1,
   "database": {
-    "version": 1,
-    "identityHash": "7300af7757686a0c10e57258144afcd7",
+    "version": 2,
+    "identityHash": "c3cb89abebcbbad3e2e2c5bf352130b0",
     "entities": [
       {
         "tableName": "PlatilloOrden",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `nombreOrden` TEXT NOT NULL, `numeroMesa` TEXT NOT NULL, `cantidad` TEXT NOT NULL, `extras` TEXT NOT NULL, `nombrePlatillo` TEXT NOT NULL, `precio` TEXT NOT NULL)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `nombreOrden` TEXT NOT NULL, `numeroMesa` TEXT NOT NULL, `cantidad` TEXT NOT NULL, `nombrePlatillo` TEXT NOT NULL, `precio` TEXT NOT NULL)",
         "fields": [
           {
             "fieldPath": "id",
@@ -29,12 +29,6 @@
           {
             "fieldPath": "cantidad",
             "columnName": "cantidad",
-            "affinity": "TEXT",
-            "notNull": true
-          },
-          {
-            "fieldPath": "extras",
-            "columnName": "extras",
             "affinity": "TEXT",
             "notNull": true
           },
@@ -96,7 +90,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '7300af7757686a0c10e57258144afcd7')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'c3cb89abebcbbad3e2e2c5bf352130b0')"
     ]
   }
 }

@@ -27,10 +27,4 @@ class SeleccionPlatilloViewModel(application: Application) : AndroidViewModel(ap
             platillosRepository.insertPlatillo(platillo)
         }
     }
-
-    fun getPlatillosByNombreOrden(nombreOrden: String) {
-        viewModelScope.launch(Dispatchers.IO) {
-            _platillos.value = platillosRepository.getPlatillosByNombreOrden(nombreOrden)
-        }
-    }
 }

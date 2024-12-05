@@ -16,5 +16,4 @@ class OrdenRepository(private val ordenDao: OrdenDao) {
     suspend fun getOrdenes(): List<Orden> {
         return ordenDao.getAll()
     }
-
 }

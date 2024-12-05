@@ -33,6 +33,7 @@ class SeleccionPlatilloActivity : AppCompatActivity() {
         val etPrecio = findViewById<TextView>(R.id.platillo_precio)
         val etDescripcion = findViewById<TextView>(R.id.platillo_descripcion)
         val et_Cantidad = findViewById<TextView>(R.id.platillo_cantidad)
+        var precio = ""
 
         var tipoPlatillo: String? = ""
 
@@ -41,7 +42,8 @@ class SeleccionPlatilloActivity : AppCompatActivity() {
         if (bundle != null) {
             etPlatilloImagen.setImageResource(bundle.getInt("imagen"))
             etPlatilloNombre.setText(bundle.getString("nombre"))
-            etPrecio.setText("$${bundle.getDouble("precio")}")
+            precio = bundle.getString("precio").toString()
+            etPrecio.setText("$${precio}")
             etDescripcion.setText(bundle.getString("descripcion"))
             tipoPlatillo = bundle.getString("tipo")
             numeroMesa = bundle.getString("numeroMesa").toString()
@@ -75,7 +77,6 @@ class SeleccionPlatilloActivity : AppCompatActivity() {
         }
 
         btn_agregar.setOnClickListener {
-            val precio = etPrecio.text.toString()
             val builder = AlertDialog.Builder(this)
             builder.setTitle("Confirmación")
             builder.setMessage("¿Estás seguro de agregar ese platillo?")
@@ -85,9 +86,8 @@ class SeleccionPlatilloActivity : AppCompatActivity() {
                 try {
                     val platillo = PlatilloOrden(
                         nombreOrden = nombreOrden.toString(),
-                        numeroMesa = numeroMesa.toInt(),
-                        cantidad = et_Cantidad.text.toString().toInt(),
-                        extras = "",
+                        numeroMesa = numeroMesa,
+                        cantidad = et_Cantidad.text.toString(),
                         nombrePlatillo = etPlatilloNombre.text.toString(),
                         precio = precio
                     )
