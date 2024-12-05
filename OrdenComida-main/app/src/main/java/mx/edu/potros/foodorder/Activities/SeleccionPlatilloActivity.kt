@@ -7,10 +7,8 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
-import mx.edu.potros.foodorder.Models.PlatilloCuenta
+import mx.edu.potros.foodorder.Models.PlatilloOrden
 import mx.edu.potros.foodorder.R
-import mx.edu.potros.foodorder.databinding.ActivityCatalogoBinding
-import mx.edu.potros.foodorder.databinding.ActivitySeleccionPlatilloBinding
 import java.lang.Exception
 
 class SeleccionPlatilloActivity : AppCompatActivity() {
@@ -80,14 +78,16 @@ class SeleccionPlatilloActivity : AppCompatActivity() {
             builder.setPositiveButton("Si") { dialog, which ->
 
                 try {
-                    var pId = 0
-                    var orden = nombreOrden
-                    var numeroMesa = Integer.parseInt(numeroMesa).toString()
-                    var cantidad = Integer.parseInt(platillo_cantidad.text.toString())
-                    var extras = ""
-                    var precio = platillo_precio.text.toString().replace("$", "").toDouble()
-                    var nombrePlatillo = platillo_nombre.text.toString()
-
+                    val platillo = PlatilloOrden(
+                        0,
+                        nombreOrden.toString(),
+                        numeroMesa.toString().toInt(),
+                        platillo_cantidad.text.toString().toInt(),
+                        "",
+                        platillo_nombre.text.toString(),
+                        platillo_precio.text.toString().toDouble()
+                    )
+                    agregarPlatillo(platillo)
                 } catch (e: Exception) {
                     System.err.println("Could not parse " + e)
                 }
@@ -113,19 +113,11 @@ class SeleccionPlatilloActivity : AppCompatActivity() {
         }
     }
 
-   /* private fun agregarPlatillo(
-        idPlatillo: String, cantidad: String, nombrePlatillo: String, nombreOrden: String, numeroMesa: String, precio: String, extras: String) {
+    private fun agregarPlatillo(platillo: PlatilloOrden) {
 
-        val platillo = PlatilloCuenta(
-            nombreOrden = nombreOrden,
-            numeroMesa = numeroMesa.toInt(),
-            cantidad = cantidad.toInt(),
-            extras = extras,
-            nombrePlatillo = nombrePlatillo,
-            id = idPlatillo.toInt(),
-            precio = precio.toDouble()
-        )
-        print(platillo.nombrePlatillo)
+        //guardar platillo en base de datos
+
+
         //val platillo = PlatilloCuenta(cantidad, null, nombrePlatillo)
 
         /*mesaRef.orderByChild("nombre").equalTo(numMesa).addListenerForSingleValueEvent(object: ValueEventListener {
@@ -155,5 +147,5 @@ class SeleccionPlatilloActivity : AppCompatActivity() {
 
             override fun onCancelled(error: DatabaseError) {}
         })*/
-    }*/
+    }
 }

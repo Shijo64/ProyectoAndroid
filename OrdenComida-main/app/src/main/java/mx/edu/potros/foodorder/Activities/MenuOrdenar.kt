@@ -23,7 +23,7 @@ class MenuOrdenar : AppCompatActivity() {
         btnOrdenar.setOnClickListener {
             var numeroMesa = numeroMesaSpinner.selectedItem.toString()
             var nombreOrden = etNombreOrden.text.toString()
-            val intent = Intent(this@MenuOrdenar, Menu::class.java)
+            val intent = Intent(this@MenuOrdenar, MenuActivity::class.java)
             intent.putExtra("numeroMesa", numeroMesa)
             intent.putExtra("nombreOrden", nombreOrden)
             startActivity(intent)

@@ -1,6 +1,6 @@
 package mx.edu.potros.foodorder.Models
 
-data class PlatilloCuenta(
+data class PlatilloOrden(
     var id: Int,
     var nombreOrden: String,
     var numeroMesa: Int,

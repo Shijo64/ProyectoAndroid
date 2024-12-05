@@ -31,7 +31,7 @@ class SeguirAgregando : AppCompatActivity() {
         }
 
         btnSeguir.setOnClickListener {
-            var intent = Intent(this, Menu::class.java)
+            var intent = Intent(this, MenuActivity::class.java)
             intent.putExtra("mesa", numMesa)
             intent.putExtra("cuenta", nombreCuenta)
             intent.putExtra("numCuentas", numCuentas)

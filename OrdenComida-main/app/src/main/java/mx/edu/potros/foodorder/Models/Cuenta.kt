@@ -6,5 +6,5 @@ data class Cuenta(
     var nombre: String,
     var mesaID: String,
     var numeroMesa: String,
-    var platillos: List<PlatilloCuenta>
+    var platillos: List<PlatilloOrden>
 ):Serializable

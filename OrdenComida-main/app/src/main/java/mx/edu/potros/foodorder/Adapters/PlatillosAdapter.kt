@@ -14,7 +14,7 @@ import mx.edu.potros.foodorder.Enums.PlatilloEnum
 import mx.edu.potros.foodorder.Models.Platillo
 import mx.edu.potros.foodorder.R
 
-class PlatillosAdapter(private val platillos: List<Platillo>, private val tipoPlatillo: String, private val numeroMesa: String, private val nombreCuenta: String, private val context: Context): BaseAdapter() {
+class PlatillosAdapter(private val platillos: List<Platillo>, private val tipoPlatillo: String, private val numeroMesa: String, private val nombreOrden: String, private val context: Context): BaseAdapter() {
 
     override fun getCount(): Int {
         return platillos.size
@@ -55,7 +55,7 @@ class PlatillosAdapter(private val platillos: List<Platillo>, private val tipoPl
                     intent.putExtra("descripcion", platillo.descripcion)
                     intent.putExtra("precio", platillo.precio)
                     intent.putExtra("numeroMesa", numeroMesa)
-                    intent.putExtra("nombreOrden", nombreCuenta)
+                    intent.putExtra("nombreOrden", nombreOrden)
                     context.startActivity(intent)
                 }
             }
@@ -67,7 +67,7 @@ class PlatillosAdapter(private val platillos: List<Platillo>, private val tipoPl
                     intent.putExtra("descripcion", platillo.descripcion)
                     intent.putExtra("precio", platillo.precio)
                     intent.putExtra("numeroMesa", numeroMesa)
-                    intent.putExtra("nombreOrden", nombreCuenta)
+                    intent.putExtra("nombreOrden", nombreOrden)
                     context.startActivity(intent)
                 }
             }
@@ -79,7 +79,7 @@ class PlatillosAdapter(private val platillos: List<Platillo>, private val tipoPl
                     intent.putExtra("descripcion", platillo.descripcion)
                     intent.putExtra("precio", platillo.precio)
                     intent.putExtra("numeroMesa", numeroMesa)
-                    intent.putExtra("nombreOrden", nombreCuenta)
+                    intent.putExtra("nombreOrden", nombreOrden)
                     context.startActivity(intent)
                 }
             }
@@ -91,7 +91,7 @@ class PlatillosAdapter(private val platillos: List<Platillo>, private val tipoPl
                     intent.putExtra("descripcion", platillo.descripcion)
                     intent.putExtra("precio", platillo.precio)
                     intent.putExtra("numeroMesa", numeroMesa)
-                    intent.putExtra("nombreOrden", nombreCuenta)
+                    intent.putExtra("nombreOrden", nombreOrden)
                     context.startActivity(intent)
                 }
             }
@@ -103,7 +103,7 @@ class PlatillosAdapter(private val platillos: List<Platillo>, private val tipoPl
                     intent.putExtra("descripcion", platillo.descripcion)
                     intent.putExtra("precio", platillo.precio)
                     intent.putExtra("numeroMesa", numeroMesa)
-                    intent.putExtra("nombreOrden", nombreCuenta)
+                    intent.putExtra("nombreOrden", nombreOrden)
                     context.startActivity(intent)
                 }
             }
@@ -115,7 +115,7 @@ class PlatillosAdapter(private val platillos: List<Platillo>, private val tipoPl
                     intent.putExtra("descripcion", platillo.descripcion)
                     intent.putExtra("precio", platillo.precio)
                     intent.putExtra("numeroMesa", numeroMesa)
-                    intent.putExtra("nombreOrden", nombreCuenta)
+                    intent.putExtra("nombreOrden", nombreOrden)
                     context.startActivity(intent)
                 }
             }
@@ -127,7 +127,7 @@ class PlatillosAdapter(private val platillos: List<Platillo>, private val tipoPl
                     intent.putExtra("descripcion", platillo.descripcion)
                     intent.putExtra("precio", platillo.precio)
                     intent.putExtra("numeroMesa", numeroMesa)
-                    intent.putExtra("nombreOrden", nombreCuenta)
+                    intent.putExtra("nombreOrden", nombreOrden)
                     context.startActivity(intent)
                 }
             }

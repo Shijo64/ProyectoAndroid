@@ -9,12 +9,9 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.lifecycleScope
-import io.appwrite.ID
 import kotlinx.coroutines.launch
 import mx.edu.potros.foodorder.Activities.CatalogoActivity
 import mx.edu.potros.foodorder.Activities.SeguirAgregando
-import mx.edu.potros.foodorder.Managers.Appwrite
-import mx.edu.potros.foodorder.Models.PlatilloCuenta
 
 class EspecificacionBoneless : AppCompatActivity() {
 

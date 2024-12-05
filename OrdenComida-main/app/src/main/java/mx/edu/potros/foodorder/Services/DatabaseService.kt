@@ -1,6 +1,5 @@
 package mx.edu.potros.foodorder.Services
 
-import androidx.lifecycle.LiveData
 import io.appwrite.Client
 import io.appwrite.ID
 import io.appwrite.exceptions.AppwriteException
@@ -9,8 +8,7 @@ import io.appwrite.services.Databases
 import mx.edu.potros.foodorder.Models.Cuenta
 import mx.edu.potros.foodorder.Models.Mesa
 import mx.edu.potros.foodorder.Models.Orden
-import mx.edu.potros.foodorder.Models.PlatilloCuenta
-import java.util.UUID
+import mx.edu.potros.foodorder.Models.PlatilloOrden
 
 class DatabaseService(client: Client) {
     private val database = Databases(client)
@@ -73,7 +71,7 @@ class DatabaseService(client: Client) {
         }
     }
 
-    suspend fun agregarPlatillo(platillo: PlatilloCuenta): String {
+    suspend fun agregarPlatillo(platillo: PlatilloOrden): String {
         try {
             val document = database.createDocument(
                 databaseId = databaseID,

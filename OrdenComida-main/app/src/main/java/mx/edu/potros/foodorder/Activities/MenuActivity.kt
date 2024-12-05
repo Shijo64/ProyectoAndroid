@@ -8,7 +8,7 @@ import android.widget.ImageView
 import mx.edu.potros.foodorder.Enums.PlatilloEnum
 import mx.edu.potros.foodorder.R
 
-class Menu : AppCompatActivity() {
+class MenuActivity : AppCompatActivity() {
     private var nombreOrden: String? = ""
     private var numeroMesa: String? = ""
 

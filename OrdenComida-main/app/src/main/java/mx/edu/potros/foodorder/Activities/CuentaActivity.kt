@@ -196,7 +196,7 @@ class CuentaActivity : AppCompatActivity() {
             }
 
             btnOrdenar.setOnClickListener {
-                val intent = Intent(context, Menu::class.java)
+                val intent = Intent(context, MenuActivity::class.java)
                 intent.putExtra("mesa", numMesa)
                 intent.putExtra("cuenta", cuenta.nombre)
                 context!!.startActivity(intent)
