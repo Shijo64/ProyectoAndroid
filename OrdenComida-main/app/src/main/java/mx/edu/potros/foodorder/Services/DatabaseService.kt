@@ -7,8 +7,7 @@ import io.appwrite.extensions.tryJsonCast
 import io.appwrite.services.Databases
 import mx.edu.potros.foodorder.Models.Cuenta
 import mx.edu.potros.foodorder.Models.Mesa
-import mx.edu.potros.foodorder.Models.Orden
-import mx.edu.potros.foodorder.Models.PlatilloOrden
+import mx.edu.potros.foodorder.Data.PlatilloOrden
 
 class DatabaseService(client: Client) {
     private val database = Databases(client)
@@ -86,7 +85,7 @@ class DatabaseService(client: Client) {
         }
     }
 
-    suspend fun crearOrden(orden: Orden): String {
+    /*suspend fun crearOrden(orden: OrdenDB): String {
         try {
             val document = database.createDocument(
                 databaseId = databaseID,
@@ -104,5 +103,5 @@ class DatabaseService(client: Client) {
             print(exception)
             return exception.message.toString()
         }
-    }
+    }*/
 }

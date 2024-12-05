@@ -8,7 +8,7 @@ import android.os.Looper
 import androidx.core.view.WindowCompat
 import mx.edu.potros.foodorder.R
 
-class Bienvenido : AppCompatActivity() {
+class BienvenidoActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         WindowCompat.setDecorFitsSystemWindows(window, false)

@@ -1,4 +1,4 @@
-package mx.edu.potros.foodorder.Activities
+package mx.edu.potros.foodorder
 
 import android.content.Context
 import android.content.Intent
@@ -9,11 +9,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
-import mx.edu.potros.foodorder.CobraCuenta
+import mx.edu.potros.foodorder.Activities.MenuActivity
+import mx.edu.potros.foodorder.Activities.MenuOrdenarActivity
 import mx.edu.potros.foodorder.Models.Cuenta
 import mx.edu.potros.foodorder.Models.Mesa
 import mx.edu.potros.foodorder.Models.Platillo
-import mx.edu.potros.foodorder.R
 
 class CuentaActivity : AppCompatActivity() {
 
@@ -40,7 +40,7 @@ class CuentaActivity : AppCompatActivity() {
         tvNumMesa.setText("Mesa " + numMesa)
 
         btnAdd.setOnClickListener {
-            val intent = Intent(this, MenuOrdenar::class.java)
+            val intent = Intent(this, MenuOrdenarActivity::class.java)
             intent.putExtra("mesa", numMesa)
             intent.putExtra("numCuentas", "una")
             startActivity(intent)

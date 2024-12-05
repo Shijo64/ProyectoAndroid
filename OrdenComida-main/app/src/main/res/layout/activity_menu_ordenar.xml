@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:background="@color/naranjaClaro"
     android:fitsSystemWindows="true"
-    tools:context=".Activities.MenuOrdenar">
+    tools:context=".Activities.MenuOrdenarActivity">
 
     <Spinner
         android:id="@+id/spinner_numero_mesa"

@@ -24,12 +24,14 @@
         </activity>
         <activity android:name=".Activities.LogoutActivity" android:exported="false" />
         <activity android:name=".Activities.RegistroActivity" android:exported="false" />
-        <activity android:name=".Activities.Bienvenido" android:exported="false" />
+        <activity android:name=".Activities.BienvenidoActivity" android:exported="false" />
         <activity android:name=".Activities.HomeActivity" android:exported="false" />
-        <activity android:name=".Activities.MenuOrdenar" android:exported="false" />
+        <activity android:name=".Activities.MenuOrdenarActivity" android:exported="false" />
         <activity android:name=".Activities.MenuActivity" android:exported="false" />
         <activity android:name=".Activities.CatalogoActivity" android:exported="false" />
         <activity android:name=".Activities.SeleccionPlatilloActivity" android:exported="false" />
+        <activity android:name=".Activities.SeguirAgregandoActivity" android:exported="false" />
+
     </application>
 
 </manifest>

@@ -1,5 +1,6 @@
 package mx.edu.potros.foodorder.Models
 
+import mx.edu.potros.foodorder.Data.PlatilloOrden
 import java.io.Serializable
 
 data class Cuenta(

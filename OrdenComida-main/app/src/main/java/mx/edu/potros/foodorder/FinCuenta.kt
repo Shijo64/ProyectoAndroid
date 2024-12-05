@@ -6,9 +6,6 @@ import android.os.Bundle
 import android.widget.Button
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.launch
-import mx.edu.potros.foodorder.Activities.CuentaActivity
-import mx.edu.potros.foodorder.Managers.Appwrite
-import mx.edu.potros.foodorder.Models.Orden
 
 class FinCuenta : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

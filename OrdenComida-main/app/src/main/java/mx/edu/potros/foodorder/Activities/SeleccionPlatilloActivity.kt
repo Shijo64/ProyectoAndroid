@@ -6,12 +6,18 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
-import mx.edu.potros.foodorder.Models.PlatilloOrden
+import mx.edu.potros.foodorder.Data.PlatilloOrden
 import mx.edu.potros.foodorder.R
+import mx.edu.potros.foodorder.ViewModels.SeleccionPlatilloViewModel
 import java.lang.Exception
 
 class SeleccionPlatilloActivity : AppCompatActivity() {
+
+    private var numeroMesa: String = ""
+    private var nombreOrden: String = ""
+    private val viewModel: SeleccionPlatilloViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,48 +28,46 @@ class SeleccionPlatilloActivity : AppCompatActivity() {
         val btn_mas = findViewById<Button>(R.id.btn_mas)
         val btn_menos = findViewById<Button>(R.id.btn_menos)
 
-        val platillo_imagen = findViewById<ImageView>(R.id.platillo_imagen)
-        val platillo_nombre = findViewById<TextView>(R.id.platillo_nombre)
-        val platillo_precio = findViewById<TextView>(R.id.platillo_precio)
-        val platillo_descripcion = findViewById<TextView>(R.id.platillo_descripcion)
-        val platillo_cantidad = findViewById<TextView>(R.id.platillo_cantidad)
+        val etPlatilloImagen = findViewById<ImageView>(R.id.platillo_imagen)
+        val etPlatilloNombre = findViewById<TextView>(R.id.platillo_nombre)
+        val etPrecio = findViewById<TextView>(R.id.platillo_precio)
+        val etDescripcion = findViewById<TextView>(R.id.platillo_descripcion)
+        val et_Cantidad = findViewById<TextView>(R.id.platillo_cantidad)
 
-        var numeroMesa: String? = ""
-        var nombreOrden: String? = ""
         var tipoPlatillo: String? = ""
 
         val bundle = intent.extras
 
         if (bundle != null) {
-            platillo_imagen.setImageResource(bundle.getInt("imagen"))
-            platillo_nombre.setText(bundle.getString("nombre"))
-            platillo_precio.setText("$${bundle.getDouble("precio")}")
-            platillo_descripcion.setText(bundle.getString("descripcion"))
+            etPlatilloImagen.setImageResource(bundle.getInt("imagen"))
+            etPlatilloNombre.setText(bundle.getString("nombre"))
+            etPrecio.setText("$${bundle.getDouble("precio")}")
+            etDescripcion.setText(bundle.getString("descripcion"))
             tipoPlatillo = bundle.getString("tipo")
-            numeroMesa = bundle.getString("numeroMesa")
-            nombreOrden = bundle.getString("nombreOrden")
+            numeroMesa = bundle.getString("numeroMesa").toString()
+            nombreOrden = bundle.getString("nombreOrden").toString()
         }
 
         btn_mas.setOnClickListener {
-            var txtCantidad: String = platillo_cantidad.text.toString()
+            var txtCantidad: String = et_Cantidad.text.toString()
 
             try {
                 var cantidad = Integer.parseInt(txtCantidad)
                 cantidad++
-                platillo_cantidad.setText(cantidad.toString())
+                et_Cantidad.setText(cantidad.toString())
             } catch (e: Exception) {
                 System.out.println("Could not parse " + e)
             }
         }
 
         btn_menos.setOnClickListener {
-            var txtCantidad: String = platillo_cantidad.text.toString()
+            var txtCantidad: String = et_Cantidad.text.toString()
 
             try {
                 var cantidad = Integer.parseInt(txtCantidad)
                 if (cantidad != 1) {
                     cantidad--
-                    platillo_cantidad.setText(cantidad.toString())
+                    et_Cantidad.setText(cantidad.toString())
                 }
             } catch (e: Exception) {
                 System.out.println("Could not parse " + e)
@@ -71,6 +75,7 @@ class SeleccionPlatilloActivity : AppCompatActivity() {
         }
 
         btn_agregar.setOnClickListener {
+            val precio = etPrecio.text.toString()
             val builder = AlertDialog.Builder(this)
             builder.setTitle("Confirmación")
             builder.setMessage("¿Estás seguro de agregar ese platillo?")
@@ -79,14 +84,14 @@ class SeleccionPlatilloActivity : AppCompatActivity() {
 
                 try {
                     val platillo = PlatilloOrden(
-                        0,
-                        nombreOrden.toString(),
-                        numeroMesa.toString().toInt(),
-                        platillo_cantidad.text.toString().toInt(),
-                        "",
-                        platillo_nombre.text.toString(),
-                        platillo_precio.text.toString().toDouble()
+                        nombreOrden = nombreOrden.toString(),
+                        numeroMesa = numeroMesa.toInt(),
+                        cantidad = et_Cantidad.text.toString().toInt(),
+                        extras = "",
+                        nombrePlatillo = etPlatilloNombre.text.toString(),
+                        precio = precio
                     )
+
                     agregarPlatillo(platillo)
                 } catch (e: Exception) {
                     System.err.println("Could not parse " + e)
@@ -115,37 +120,12 @@ class SeleccionPlatilloActivity : AppCompatActivity() {
 
     private fun agregarPlatillo(platillo: PlatilloOrden) {
 
-        //guardar platillo en base de datos
+        viewModel.guardarPlatillo(platillo)
 
-
-        //val platillo = PlatilloCuenta(cantidad, null, nombrePlatillo)
-
-        /*mesaRef.orderByChild("nombre").equalTo(numMesa).addListenerForSingleValueEvent(object: ValueEventListener {
-            override fun onDataChange(snapshot: DataSnapshot) {
-                for (s in snapshot.children) {
-                    var mesaExistente = s.getValue(Mesa::class.java)
-
-                    if (mesaExistente != null) {
-                        for (c in mesaExistente.cuentas!!) {
-                            if (c.nombre == nombreCuenta) {
-                                c.platillos?.add(platillo)
-                                break
-                            }
-                        }
-
-                        s.ref.setValue(mesaExistente)
-
-                        var intent = Intent(this@EspecificacionGenerica, SeguirAgregando::class.java)
-                        intent.putExtra("cuenta", nombreCuenta)
-                        intent.putExtra("mesa", numMesa)
-                        intent.putExtra("numCuentas", numCuentas)
-                        startActivity(intent)
-                        finish()
-                    }
-                }
-            }
-
-            override fun onCancelled(error: DatabaseError) {}
-        })*/
+        var intent = Intent(this@SeleccionPlatilloActivity, SeguirAgregandoActivity::class.java)
+        intent.putExtra("numeroMesa", numeroMesa)
+        intent.putExtra("nombreOrden", nombreOrden)
+        startActivity(intent)
+        finish()
     }
 }

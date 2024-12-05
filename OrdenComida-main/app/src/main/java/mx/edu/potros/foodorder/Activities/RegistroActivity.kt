@@ -8,11 +8,7 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.viewModels
-import androidx.lifecycle.lifecycleScope
-import kotlinx.coroutines.launch
-import mx.edu.potros.foodorder.Managers.Appwrite
 import mx.edu.potros.foodorder.R
-import mx.edu.potros.foodorder.ViewModels.LoginViewModel
 import mx.edu.potros.foodorder.ViewModels.RegistroViewModel
 
 class RegistroActivity : AppCompatActivity() {
@@ -52,7 +48,7 @@ class RegistroActivity : AppCompatActivity() {
     }
 
     private fun reload() {
-        val intent = Intent(this, Bienvenido::class.java)
+        val intent = Intent(this, BienvenidoActivity::class.java)
         startActivity(intent)
         finish()
     }

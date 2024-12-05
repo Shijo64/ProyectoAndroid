@@ -1,16 +1,10 @@
-package mx.edu.potros.foodorder.Activities
+package mx.edu.potros.foodorder
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
-import android.widget.ImageView
-import android.widget.Spinner
-import android.widget.Toast
-import androidx.lifecycle.lifecycleScope
-import kotlinx.coroutines.launch
-import mx.edu.potros.foodorder.Managers.Appwrite
-import mx.edu.potros.foodorder.R
+import mx.edu.potros.foodorder.Activities.HomeActivity
 
 class NuevaMesa : AppCompatActivity() {
 

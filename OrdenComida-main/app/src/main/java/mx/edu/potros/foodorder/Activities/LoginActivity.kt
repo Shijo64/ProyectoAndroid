@@ -7,7 +7,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.activity.viewModels
-import mx.edu.potros.foodorder.Managers.Appwrite
+import mx.edu.potros.foodorder.Singleton.Appwrite
 import mx.edu.potros.foodorder.R
 import mx.edu.potros.foodorder.ViewModels.LoginViewModel
 
@@ -58,7 +58,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun reload() {
-        val intent = Intent(this, Bienvenido::class.java)
+        val intent = Intent(this, BienvenidoActivity::class.java)
         startActivity(intent)
         finish()
     }

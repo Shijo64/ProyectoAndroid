@@ -1,4 +1,4 @@
-package mx.edu.potros.foodorder.Managers
+package mx.edu.potros.foodorder.Singleton
 
 import android.content.Context
 import io.appwrite.Client

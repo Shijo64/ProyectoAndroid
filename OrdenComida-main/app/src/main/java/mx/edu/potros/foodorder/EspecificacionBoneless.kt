@@ -11,7 +11,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.launch
 import mx.edu.potros.foodorder.Activities.CatalogoActivity
-import mx.edu.potros.foodorder.Activities.SeguirAgregando
+import mx.edu.potros.foodorder.Activities.SeguirAgregandoActivity
 
 class EspecificacionBoneless : AppCompatActivity() {
 
@@ -97,7 +97,7 @@ class EspecificacionBoneless : AppCompatActivity() {
 
         //val platilloID = Appwrite.database.agregarPlatillo(platillo)
 
-        var intent = Intent(this@EspecificacionBoneless, SeguirAgregando::class.java)
+        var intent = Intent(this@EspecificacionBoneless, SeguirAgregandoActivity::class.java)
         intent.putExtra("mesa", numMesa)
         intent.putExtra("cuenta", nombreCuenta)
         intent.putExtra("numCuentas", numCuentas)
