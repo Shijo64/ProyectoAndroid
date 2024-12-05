@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/amarillento"
     android:orientation="vertical"
-    tools:context=".Activities.Bienvenido">
+    tools:context=".Activities.BienvenidoActivity">
 
     <ImageView
         android:id="@+id/image_bienvenido"

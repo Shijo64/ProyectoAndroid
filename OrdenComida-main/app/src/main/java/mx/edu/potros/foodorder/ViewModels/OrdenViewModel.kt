@@ -11,7 +11,8 @@ import mx.edu.potros.foodorder.Data.AppDatabase
 import mx.edu.potros.foodorder.Data.Orden
 import mx.edu.potros.foodorder.Repositorys.OrdenRepository
 
-class HomeViewModel(application: Application) : AndroidViewModel(application) {
+class OrdenViewModel(application: Application) : AndroidViewModel(application) {
+
     private val _ordenes = MutableLiveData<List<Orden>>()
     val ordenes: LiveData<List<Orden>> = _ordenes
     private val ordenRepository: OrdenRepository
@@ -24,6 +25,12 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
     fun getOrdenes() {
         viewModelScope.launch(Dispatchers.IO) {
             _ordenes.postValue(ordenRepository.getOrdenes())
+        }
+    }
+
+    fun guardarOrden(orden: Orden) {
+        viewModelScope.launch(Dispatchers.IO) {
+            ordenRepository.insertOrden(orden)
         }
     }
 }

@@ -1,4 +1,4 @@
-package mx.edu.potros.foodorder.Activities
+package mx.edu.potros.foodorder
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -6,7 +6,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.view.WindowManager
-import mx.edu.potros.foodorder.R
+import mx.edu.potros.foodorder.Activities.LoginActivity
 
 class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

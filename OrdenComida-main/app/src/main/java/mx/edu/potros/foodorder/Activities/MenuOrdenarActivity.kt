@@ -9,7 +9,7 @@ import android.widget.Spinner
 import mx.edu.potros.foodorder.R
 import mx.edu.potros.foodorder.R.id.spinner_numero_mesa
 
-class MenuOrdenar : AppCompatActivity() {
+class MenuOrdenarActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,7 +23,7 @@ class MenuOrdenar : AppCompatActivity() {
         btnOrdenar.setOnClickListener {
             var numeroMesa = numeroMesaSpinner.selectedItem.toString()
             var nombreOrden = etNombreOrden.text.toString()
-            val intent = Intent(this@MenuOrdenar, MenuActivity::class.java)
+            val intent = Intent(this@MenuOrdenarActivity, MenuActivity::class.java)
             intent.putExtra("numeroMesa", numeroMesa)
             intent.putExtra("nombreOrden", nombreOrden)
             startActivity(intent)

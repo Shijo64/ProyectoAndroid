@@ -3,7 +3,7 @@ package mx.edu.potros.foodorder.ViewModels
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
-import mx.edu.potros.foodorder.Managers.Appwrite
+import mx.edu.potros.foodorder.Singleton.Appwrite
 
 class LogoutViewModel: ViewModel()  {
 

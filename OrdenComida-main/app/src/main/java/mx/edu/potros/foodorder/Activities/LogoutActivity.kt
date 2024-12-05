@@ -5,8 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import androidx.activity.viewModels
-import kotlinx.coroutines.coroutineScope
-import mx.edu.potros.foodorder.Managers.Appwrite
 import mx.edu.potros.foodorder.R
 import mx.edu.potros.foodorder.ViewModels.LogoutViewModel
 
