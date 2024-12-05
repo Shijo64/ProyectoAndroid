@@ -1,5 +1,7 @@
 package mx.edu.potros.foodorder.Data
 
+import android.os.Parcel
+import android.os.Parcelable
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 

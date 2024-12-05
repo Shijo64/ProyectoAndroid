@@ -7,9 +7,8 @@ import androidx.room.PrimaryKey
 data class PlatilloOrden(
     @PrimaryKey(autoGenerate = true) var id: Int = 0,
     var nombreOrden: String,
-    var numeroMesa: Int,
-    var cantidad: Int,
-    var extras: String,
+    var numeroMesa: String,
+    var cantidad: String,
     var nombrePlatillo: String,
     var precio: String
 )

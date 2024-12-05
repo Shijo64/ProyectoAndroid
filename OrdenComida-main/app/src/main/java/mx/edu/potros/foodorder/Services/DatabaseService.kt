@@ -5,6 +5,7 @@ import io.appwrite.ID
 import io.appwrite.exceptions.AppwriteException
 import io.appwrite.extensions.tryJsonCast
 import io.appwrite.services.Databases
+import mx.edu.potros.foodorder.Data.Orden
 import mx.edu.potros.foodorder.Models.Cuenta
 import mx.edu.potros.foodorder.Models.Mesa
 import mx.edu.potros.foodorder.Data.PlatilloOrden
@@ -12,96 +13,43 @@ import mx.edu.potros.foodorder.Data.PlatilloOrden
 class DatabaseService(client: Client) {
     private val database = Databases(client)
     private val databaseID = "674d704100189047fe83"
-    private val mesasID = "674d70510018561aa9a4"
-    private val cuentasID = "674d712e00129339728f"
-    private val platillosID = "674d7388001669c99bad"
-    private val ordenesID = "674d712e00129339728f"
+    private val ordenesID = "674fb37300031ff925d4"
+    private val platillosID = "6751d7d6001d0bc9c631"
 
-    suspend fun addMesa(numeroMesa: Int): String {
-        try {
-            val document = database.createDocument(
-                databaseId = databaseID,
-                collectionId = mesasID,
-                documentId = ID.unique().toString(),
-                data = mapOf("numeroMesa" to numeroMesa),
-            )
-            return document.id
-        }catch (exception: AppwriteException){
-            print(exception)
-            return exception.message.toString()
-        }
-    }
-
-    suspend fun getMesas(): List<Mesa> {
-        try {
-            val response = database.listDocuments(databaseID, mesasID)
-            val mesas = response.documents.map { it.data.tryJsonCast<Mesa>() }
-            return mesas as List<Mesa>
-        }catch (exception: AppwriteException){
-            print(exception)
-            return emptyList()
-        }
-    }
-
-    suspend fun crearCuenta(cuenta: Cuenta): String {
-        try {
-            val document = database.createDocument(
-                databaseId = databaseID,
-                collectionId = cuentasID,
-                documentId = ID.unique(),
-                data = mapOf("nombre" to cuenta.nombre, "mesaID" to cuenta.mesaID),
-            )
-
-            return document.id
-        }catch (exception: AppwriteException){
-            print(exception)
-            return exception.message.toString()
-        }
-    }
-
-    suspend fun getCuentas(): List<Cuenta?> {
-        try {
-            val response = database.listDocuments(databaseID, cuentasID)
-            val cuentas = response.documents.map { it.data.tryJsonCast<Cuenta>() }
-            return cuentas
-        }catch (exception: AppwriteException){
-            print(exception)
-            return emptyList()
-        }
-    }
-
-    suspend fun agregarPlatillo(platillo: PlatilloOrden): String {
-        try {
-            val document = database.createDocument(
-                databaseId = databaseID,
-                collectionId = platillosID,
-                documentId = ID.unique(),
-                data = mapOf("nombre" to platillo.nombrePlatillo,"cantidad" to platillo.cantidad,"extras" to platillo.extras,"idCuenta" to platillo.id,)
-            )
-            return document.id
-        }catch (exception: AppwriteException){
-            print(exception)
-            return exception.message.toString()
-        }
-    }
-
-    /*suspend fun crearOrden(orden: OrdenDB): String {
+    suspend fun crearOrden(numeroMesa: String, nombreOrden: String): String {
         try {
             val document = database.createDocument(
                 databaseId = databaseID,
                 collectionId = ordenesID,
                 documentId = ID.unique(),
                 data = mapOf(
-                    "cuentaID" to orden.cuentaID,
-                    "numeroMesa" to orden.numeroMesa,
-                    "nombreCuenta" to orden.nombreCuenta,
-                    "platillos" to orden.platillos)
+                    "nombreOrden" to nombreOrden,
+                    "numeroMesa" to numeroMesa
+                )
             )
-
             return document.id
         }catch (exception: AppwriteException){
-            print(exception)
             return exception.message.toString()
         }
-    }*/
+    }
+
+    suspend fun crearPlatillo(platillo: PlatilloOrden): String {
+        try {
+            val document = database.createDocument(
+                databaseId = databaseID,
+                collectionId = platillosID,
+                documentId = ID.unique(),
+                data = mapOf(
+                    "nombreOrden" to platillo.nombreOrden,
+                    "numeroMesa" to platillo.numeroMesa,
+                    "cantidad" to platillo.cantidad,
+                    "nombrePlatillo" to platillo.nombrePlatillo,
+                    "precio" to platillo.precio
+                )
+            )
+            return document.id
+        }catch (exception: AppwriteException){
+            return exception.message.toString()
+        }
+    }
 }

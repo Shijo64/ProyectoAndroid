@@ -2,13 +2,14 @@ package mx.edu.potros.foodorder.Adapters
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.TextView
 import mx.edu.potros.foodorder.Data.Orden
-import mx.edu.potros.foodorder.Models.Mesa
+import mx.edu.potros.foodorder.Activities.DetalleOrdenActivity
 import mx.edu.potros.foodorder.R
 
 class OrdenesAdapter(private val context: Context, private val ordenes: List<Orden>): BaseAdapter() {
@@ -32,8 +33,19 @@ class OrdenesAdapter(private val context: Context, private val ordenes: List<Ord
             view = LayoutInflater.from(context).inflate(R.layout.list_row_view, parent, false)
         }
 
-        val listText = view?.findViewById<TextView>(R.id.numeroMesa)
-        listText?.text = "Mesa: " + ordenes[position].numeroMesa.toString()
+        view?.setOnClickListener {
+            val intent = Intent(context, DetalleOrdenActivity::class.java)
+            intent.putExtra("nombreOrden", ordenes[position].nombreOrden)
+            intent.putExtra("numeroMesa", ordenes[position].numeroMesa)
+            context.startActivity(intent)
+        }
+
+        val etNumeroMesa = view?.findViewById<TextView>(R.id.numeroMesa)
+        val etNombreOrden = view?.findViewById<TextView>(R.id.nombreOrden)
+
+        etNumeroMesa?.text = "Mesa: " + ordenes[position].numeroMesa.toString()
+        etNombreOrden?.text = "Orden: " + ordenes[position].nombreOrden
+
         return view ?: throw NullPointerException("Expression 'view' must not be null")
     }
 }

@@ -48,7 +48,7 @@
     <string name="costoCuenta">Costo</string>
     <string name="enviarPedido">Enviar pedido</string>
     <string name="seguirAgregando">Seguir agregando</string>
-    <string name="finCuenta">Finalizar cuenta</string>
+    <string name="finCuenta">Agregar Orden</string>
     <string name="agregaCuenta">Agregar cuenta</string>
     <string name="irPedido">Ir al pedido</string>
     <string name="confirmaElimina">¿Seguro que desea eliminar el producto?</string>
