@@ -109,11 +109,6 @@ class SeleccionPlatilloActivity : AppCompatActivity() {
         }
 
         btn_back.setOnClickListener {
-            var intent = Intent(this, CatalogoActivity::class.java)
-            intent.putExtra("tipo", tipoPlatillo)
-            intent.putExtra("mesa", numeroMesa)
-            intent.putExtra("nombreOrden", nombreOrden)
-            startActivity(intent)
             finish()
         }
     }

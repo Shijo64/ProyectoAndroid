@@ -48,15 +48,4 @@ class SeguirAgregandoActivity : AppCompatActivity() {
             finish()
         }
     }
-
-    private fun finalizarCuenta(numMesa: String?, numCuentas: String?) {
-        //obtener platillos de orden
-        //guardar orden en base de datos
-        /*var intent = Intent(this@SeguirAgregando, FinCuenta::class.java)
-        intent.putExtra("mesa", numMesa)
-        intent.putExtra("numCuentas", numCuentas)
-        intent.putExtra("cuentaID", numCuentas)
-        startActivity(intent)
-        finish()*/
-    }
 }

@@ -10,6 +10,7 @@ object Appwrite {
     private lateinit var client: Client
     internal lateinit var account: AccountService
     internal lateinit var database: DatabaseService
+    var nombre = ""
 
     fun init(context: Context) {
         client = Client(context)

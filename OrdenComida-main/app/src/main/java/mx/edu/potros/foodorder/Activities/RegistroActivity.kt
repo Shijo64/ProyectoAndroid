@@ -23,6 +23,7 @@ class RegistroActivity : AppCompatActivity() {
         val etCorreo: EditText = findViewById(R.id.input_correo)
         val etPassword: EditText = findViewById(R.id.input_password)
         val etVerifyPassword: EditText = findViewById(R.id.inpud_verify_password)
+        val btnBack: Button = findViewById(R.id.btn_back)
 
         viewModel.loginResult.observe(this) { success ->
             if (success) {
@@ -44,6 +45,10 @@ class RegistroActivity : AppCompatActivity() {
             } else {
                 viewModel.createAccount()
             }
+        }
+
+        btnBack.setOnClickListener {
+            finish()
         }
     }
 

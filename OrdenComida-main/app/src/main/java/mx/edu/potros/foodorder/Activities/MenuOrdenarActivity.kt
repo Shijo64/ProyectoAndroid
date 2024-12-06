@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Spinner
+import android.widget.Toast
 import mx.edu.potros.foodorder.R
 import mx.edu.potros.foodorder.R.id.spinner_numero_mesa
 
@@ -23,10 +24,14 @@ class MenuOrdenarActivity : AppCompatActivity() {
         btnOrdenar.setOnClickListener {
             var numeroMesa = numeroMesaSpinner.selectedItem.toString()
             var nombreOrden = etNombreOrden.text.toString()
-            val intent = Intent(this@MenuOrdenarActivity, MenuActivity::class.java)
-            intent.putExtra("numeroMesa", numeroMesa)
-            intent.putExtra("nombreOrden", nombreOrden)
-            startActivity(intent)
+            if (nombreOrden.isEmpty() || numeroMesa.isEmpty()) {
+                Toast.makeText(this, "Por favor, completa todos los campos", Toast.LENGTH_SHORT).show()
+            } else {
+                val intent = Intent(this@MenuOrdenarActivity, MenuActivity::class.java)
+                intent.putExtra("numeroMesa", numeroMesa)
+                intent.putExtra("nombreOrden", nombreOrden)
+                startActivity(intent)
+            }
         }
 
         btnRegresar.setOnClickListener {

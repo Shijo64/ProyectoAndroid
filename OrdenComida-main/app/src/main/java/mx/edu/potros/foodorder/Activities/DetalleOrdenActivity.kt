@@ -70,12 +70,12 @@ class DetalleOrdenActivity : AppCompatActivity() {
         viewModel.addPlatillosResult.observe(this, { result ->
             if (result != null) {
                 Toast.makeText(this, "Platillos enviados correctamente", Toast.LENGTH_SHORT).show()
+                finish()
             }
         })
 
         btnEnviarPedido.setOnClickListener {
             viewModel.enviarOrden(numeroMesa.toString(), nombreOrden.toString())
-            print("Enviando pedido")
         }
 
         btnAtras.setOnClickListener {

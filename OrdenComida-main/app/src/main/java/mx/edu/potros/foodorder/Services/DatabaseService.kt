@@ -6,7 +6,6 @@ import io.appwrite.exceptions.AppwriteException
 import io.appwrite.extensions.tryJsonCast
 import io.appwrite.services.Databases
 import mx.edu.potros.foodorder.Data.Orden
-import mx.edu.potros.foodorder.Models.Cuenta
 import mx.edu.potros.foodorder.Models.Mesa
 import mx.edu.potros.foodorder.Data.PlatilloOrden
 
